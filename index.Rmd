@@ -68,7 +68,7 @@ $A \in \mathcal{M}_{p}(\mathbb{R})$ or $A \in \mathbb{R}^{p \times p}$ of transf
   $\Leftrightarrow (A - \lambda I)\vec{v} = 0$
 </div>
 
-in which $I$ is identity matrix. So this system has a non-trivial solution if, and only if, the determinant of the matrix $A - \lambda I$ is zero (a consequence of Cramer's Rule),
+in which $I$ is identity matrix. So this system has a non-trivial solution if, and only if, the determinant of the matrix $(A - \lambda I)$ is zero (a consequence of Cramer's Rule),
 
 <div class="equation">
   $$\begin{cases}
@@ -79,6 +79,25 @@ in which $I$ is identity matrix. So this system has a non-trivial solution if, a
 
 In this manner, $(A - \lambda I)$ is non-invertible and singular.
 
+Example: Let A is a matrix, and now we will find its eigenvectors and eigenvalues.
+
+<div class="equation">
+$$\begin{bmatrix}
+ 2 & -1 \\
+-1 &  2 
+\end{bmatrix}$$
+</div>
+
+and knowing that $det(A - \lambda I) =0$. Then,
+
+<div class="equation">
+$$ \begin{bmatrix}
+ 2 - \lambda & -1 \\
+-1 &  2 - \lambda 
+\end{bmatrix} = (2 - \lambda)(2 - \lambda) - 1 = 0$$
+$$\lambda^2 - 4 \lambda + 3 = 0$$
+$$ (\lambda - 3)(\lambda - 1) = 0$$
+</div>
 
 
 
