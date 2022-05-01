@@ -36,10 +36,53 @@ In this topic, I will discuss the mathematics of  Eigenvectors and Eigenvalues, 
 
 <div class="Definition">
 <p><strong>Definition 1</strong>.
-Let a non-null vector $v$ (i.e. $\vec{v} \neq 0$), $v \in V$ (vector space) is said a  eigenvectors of $T$ if exist a real number $\lambda$ which $T(v) = \lambda v$. 
+Let a non-null vector $v$ (i.e. $\vec{v} \neq 0$), $v \in V$ (vector space) is said a eigenvectors of $T$ if there exist a real number $\lambda$ which $T(v) = \lambda v$. The $\lambda$ scalar is denominated a eigenvalues of $T$ that is associate a $v$. It can be concluded that $v$ and $T$ have the same support line (and thus the same direction.):
 </p>
 </div>
 
+
+<div class="equation">
+  $$\begin{aligned}
+  T: v \rightarrow v \\[5px]
+  \Rightarrow
+  T(\vec{v}) = \lambda \vec{v} \\[5px]
+  \Rightarrow A\vec{v} = \lambda\vec{v}
+  \end{aligned}$$
+</div>
+
+<div class="Preposition">
+<p><strong>Preposition 1</strong>.
+The eigenvectors of $A$ are precisely the roots of the characteristic polynomial of $A$. 
+</p>
+</div>
+
+$A \in \mathcal{M}_{p}(\mathbb{R})$ or $A \in \mathbb{R}^{p \times p}$ of transformation $T: \mathbb{R}^{p} \rightarrow \mathbb{R}^{p}$. Therefore 
+
+<div style="text-align: center;">
+  $\lambda \in \mathbb{R}$ is eigenvalues of $A$. 
+  
+  $\Leftrightarrow \exists$ $\vec{v} \neq 0$ such that $A\vec{v} = \lambda\vec{v}$
+  
+  $\Leftrightarrow A\vec{v} - \lambda\vec{v} = 0$ where $AI = A$
+  
+  $\Leftrightarrow (A - \lambda I)\vec{v} = 0$
+</div>
+
+in which $I$ is identity matrix. So there are two solutions.
+
+<div class="equation">
+  $$\begin{cases}
+      \vec{v} = 0\\
+      (A - \lambda I) = 0
+    \end{cases}$$
+</div>
+
+
+
+
+
+
+<!--
 The first one is the most famous distribution, is the Bernoulli distribution. Let $X$ a binary random variable with probability density function (PDF) $f_{x}$ . Then, $X \sim Ber(p)$ has PDF
 
 <div class="equation">
@@ -57,7 +100,7 @@ I will not discuss moments in statistics here where the first moment is mathemat
 set.seed(123)
 
 ```
-
+-->
 
 
  
