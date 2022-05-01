@@ -36,7 +36,7 @@ In this topic, I will discuss the mathematics of  Eigenvectors and Eigenvalues, 
 
 <div class="Definition">
 <p><strong>Definition 1</strong>.
-Let a non-null vector $v$ (i.e. $\vec{v} \neq 0$), $v \in V$ (vector space) is said a eigenvectors of $T$ if there exist a real number $\lambda$ which $T(v) = \lambda v$. The $\lambda$ scalar is denominated a eigenvalues of $T$ that is associate a $v$. It can be concluded that $v$ and $T$ have the same support line (and thus the same direction.):
+Let a non-null vector $v$ (i.e. $\vec{v} \neq 0$), $v \in V$ (vector space) is said a eigenvectors of $T$ if there exist a real number $\lambda$ which $T(v) = \lambda v$. The $\lambda$ scalar is denominated by an eigenvalue of $T$ associated with $v$. It can be concluded that $v$ and $T$ have the same support line (and thus the same direction.):
 </p>
 </div>
 
@@ -68,14 +68,18 @@ $A \in \mathcal{M}_{p}(\mathbb{R})$ or $A \in \mathbb{R}^{p \times p}$ of transf
   $\Leftrightarrow (A - \lambda I)\vec{v} = 0$
 </div>
 
-in which $I$ is identity matrix. So there are two solutions.
+in which $I$ is identity matrix. So this system has a non-trivial solution if, and only if, the determinant of the matrix $A - \lambda I$ is zero (a consequence of Cramer's Rule),
 
 <div class="equation">
   $$\begin{cases}
-      \vec{v} = 0\\
-      (A - \lambda I) = 0
+      \vec{v} \neq 0\\
+      \det(A - \lambda I) = 0
     \end{cases}$$
 </div>
+
+In this manner, $(A - \lambda I)$ is non-invertible and singular.
+
+
 
 
 

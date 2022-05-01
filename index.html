@@ -375,9 +375,9 @@ Analysis. And finally, I will show an application of this technique.</p>
 <p>
 <strong>Definition 1</strong>. Let a non-null vector <span class="math inline">\(v\)</span> (i.e. <span class="math inline">\(\vec{v} \neq 0\)</span>), <span class="math inline">\(v \in V\)</span> (vector space) is said a
 eigenvectors of <span class="math inline">\(T\)</span> if there exist a
-real number <span class="math inline">\(\lambda\)</span> which <span class="math inline">\(T(v) = \lambda v\)</span>. The <span class="math inline">\(\lambda\)</span> scalar is denominated a
-eigenvalues of <span class="math inline">\(T\)</span> that is associate
-a <span class="math inline">\(v\)</span>. It can be concluded that <span class="math inline">\(v\)</span> and <span class="math inline">\(T\)</span> have the same support line (and thus
+real number <span class="math inline">\(\lambda\)</span> which <span class="math inline">\(T(v) = \lambda v\)</span>. The <span class="math inline">\(\lambda\)</span> scalar is denominated by an
+eigenvalue of <span class="math inline">\(T\)</span> associated with
+<span class="math inline">\(v\)</span>. It can be concluded that <span class="math inline">\(v\)</span> and <span class="math inline">\(T\)</span> have the same support line (and thus
 the same direction.):
 </p>
 </div>
@@ -409,13 +409,17 @@ eigenvalues of <span class="math inline">\(A\)</span>.</p>
 0\)</span></p>
 </div>
 <p>in which <span class="math inline">\(I\)</span> is identity matrix.
-So there are two solutions.</p>
+So this system has a non-trivial solution if, and only if, the
+determinant of the matrix <span class="math inline">\(A - \lambda
+I\)</span> is zero (a consequence of Cramer’s Rule),</p>
 <div class="equation">
 <p><span class="math display">\[\begin{cases}
-      \vec{v} = 0\\
-      (A - \lambda I) = 0
+      \vec{v} \neq 0\\
+      \det(A - \lambda I) = 0
     \end{cases}\]</span></p>
 </div>
+<p>In this manner, <span class="math inline">\((A - \lambda I)\)</span>
+is non-invertible and singular.</p>
 <!--
 The first one is the most famous distribution, is the Bernoulli distribution. Let $X$ a binary random variable with probability density function (PDF) $f_{x}$ . Then, $X \sim Ber(p)$ has PDF
 
