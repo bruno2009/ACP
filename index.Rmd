@@ -36,7 +36,7 @@ In this topic, I will discuss the mathematics of  Eigenvectors and Eigenvalues, 
 
 <div class="Definition">
 <p><strong>Definition 1</strong>.
-Let a non-null vector $v$ (i.e. $\vec{v} \neq 0$), 
+Let a non-null vector $v$ (i.e. $\vec{v} \neq 0$), $v \in V$ (vector space) is said a  eigenvectors of $T$ if exist a real number $\lambda$ which $T(v) = \lambda v$. 
 </p>
 </div>
 
