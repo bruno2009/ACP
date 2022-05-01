@@ -436,6 +436,69 @@ eigenvalues.</p>
 -1 &amp;  2 - \lambda
 \end{bmatrix} = (2 - \lambda)(2 - \lambda) - 1 = 0\]</span> <span class="math display">\[\lambda^2 - 4 \lambda + 3 = 0\]</span> <span class="math display">\[ (\lambda - 3)(\lambda - 1) = 0\]</span></p>
 </div>
+<p>The solutions for the eigenvalues are <span class="math inline">\(\lambda = (3, 1)^{\top}\)</span>. For the
+eigenvector equal to <span class="math inline">\(\lambda_{1} =
+3\)</span>, we have</p>
+<div class="equation">
+<p><span class="math display">\[ \begin{bmatrix}
+2 - 3 &amp; -1 \\
+-1 &amp;  2 - 3
+\end{bmatrix} = \begin{bmatrix}
+v_{1}  \\
+v_{2}
+\end{bmatrix} = \vec{0}\]</span></p>
+</div>
+<div class="equation">
+<p><span class="math display">\[ \begin{bmatrix}
+-1 &amp; -1 \\
+-1 &amp;  -1
+\end{bmatrix} = \begin{bmatrix}
+v_{1}  \\
+v_{2}
+\end{bmatrix} = \vec{0}\]</span></p>
+</div>
+<div class="equation">
+<p><span class="math display">\[\begin{cases}
+      - v_{1} - v_{2} = 0\\
+      - v_{1} - v_{2} = 0
+    \end{cases} \Rightarrow  v_{1} = - v_{2}\]</span> <span class="math display">\[ (- v_{2}, v_{2})^{\top} = v_{2}(- 1,
+1)^{\top}\]</span> <span class="math display">\[ \lambda = 3 \sim
+\text{span}\bigg\{\begin{bmatrix}
+-1  \\
+1
+\end{bmatrix}\bigg\} \Rightarrow \vec{v} = (-1, 1)^{\top}\]</span></p>
+</div>
+<p>For the eigenvector equal to <span class="math inline">\(\lambda_{1}
+= 1\)</span>, we have</p>
+<div class="equation">
+<p><span class="math display">\[ \begin{bmatrix}
+2 - 1 &amp; -1 \\
+-1 &amp;  2 - 1
+\end{bmatrix} = \begin{bmatrix}
+v_{1}  \\
+v_{2}
+\end{bmatrix} = \vec{0}\]</span></p>
+</div>
+<div class="equation">
+<p><span class="math display">\[ \begin{bmatrix}
+1 &amp; -1 \\
+-1 &amp;  1
+\end{bmatrix} = \begin{bmatrix}
+v_{1}  \\
+v_{2}
+\end{bmatrix} = \vec{0}\]</span></p>
+</div>
+<div class="equation">
+<p><span class="math display">\[\begin{cases}
+        v_{1} - v_{2} = 0\\
+      - v_{1} + v_{2} = 0
+    \end{cases} \Rightarrow  v_{1} = v_{2}\]</span> <span class="math display">\[ ( v_{2}, v_{2})^{\top} = v_{2}(1,
+1)^{\top}\]</span> <span class="math display">\[ \lambda = 1 \sim
+\text{span}\bigg\{\begin{bmatrix}
+1  \\
+1
+\end{bmatrix}\bigg\} \Rightarrow \vec{v} = (1, 1)^{\top}\]</span></p>
+</div>
 <!--
 The first one is the most famous distribution, is the Bernoulli distribution. Let $X$ a binary random variable with probability density function (PDF) $f_{x}$ . Then, $X \sim Ber(p)$ has PDF
 
