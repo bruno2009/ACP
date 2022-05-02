@@ -247,7 +247,7 @@ $$ \begin{matrix}
 with $e_{i}^{\top} e_{j} = 0$ and $e_{i}^{\top} e_{i} = 1$, $i \neq j$ and $i, j = 1, \dots, p$;
 
 </li>
-<li> This relation is valid $P^{-1}AP = D$, so $P$ is defined as follows 
+<li> The relation is valid $P^{-1}AP = D$, so $P$ is defined as follows 
 
 <div class="equation">
 $$ P_{p \times p} =\begin{bmatrix}
@@ -264,13 +264,26 @@ $$ P_{p \times p} =\begin{bmatrix}
 where $P$ is a orthonormal eigenvectors matrix.
 <div class="Reminder">
 <p><strong>Reminder:</strong>
-Orthonormal eigenvectors matrix there are following property
-$P^{\top}P = I = PP^{\top}$ and $P^{-1} = P^{\top}$
+Orthonormal eigenvectors matrix has the following properties
+$P^{\top}P = I = PP^{\top}$ and $P^{-1} = P^{\top}$.
 </p>
 </div>
 
+and the $D$ matrix is defined by 
+
+<div class="equation">
+$$ D_{p \times p} =
+\begin{bmatrix}
+\lambda_{1} &         &       & \\
+        &  \lambda_{2} &       & \\
+        &         &\ddots & \\
+        &         &       & \lambda_{p}\\
+\end{bmatrix}$$ 
+</div>
+
+where $D$ is a diagonal matrix in which eigenvalues are diagonal elements;
+
 </li>
-<li> The density of Normal Distribution is log-concave. </li>
 </ol> 
 </div>
 
