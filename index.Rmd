@@ -276,7 +276,7 @@ $P^{\top}P = I = PP^{\top}$ and $P^{-1} = P^{\top}$.
 </p>
 </div>
 
-and the $D$ matrix is defined by 
+and $D$ matrix is defined by 
 
 <div class="equation">
 $$ D_{p \times p} =
@@ -303,6 +303,15 @@ where $D$ is a diagonal matrix in which eigenvalues are diagonal elements;
   <ol type="I">
     <li> $A$ is positive definite $\Leftrightarrow$ If $Q(x) > 0$, $\forall$ $x \in \mathbb{R}_{\small\setminus0}^{p}$.</li>
     <li> $A$ is positive semidefinite $\Leftrightarrow$ If $Q(x) \geq 0$, $\forall$ $x \in \mathbb{R}_{\small\setminus0}^{p}$.</li>
+  </ol> 
+</div>
+
+Hence
+
+<div class="lista">
+  <ol type="I">
+    <li> $A$ is positive definite, so $\lambda_{j} > 0$ for all $j = 1, \dots, p$.</li>
+    <li> $A$ is positive semidefinite, so $\lambda_{j} \geq 0$ for all $j = 1, \dots, p$.</li>
   </ol> 
 </div>
 
