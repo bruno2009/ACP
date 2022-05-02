@@ -309,10 +309,11 @@ where $D$ is a diagonal matrix in which eigenvalues are diagonal elements;
 
 <div class="Important">
 <p><strong>Important:</strong> If $A \in \mathbb{R}^{p \times p}$ and positive definite.
-  <ol type="I">
-    <li> All elements on the main diagonal are positive.</li>
-    <li> All main submatrix $A_{k}$ is positive definite for all $k = 1, \dots, p$.</li>
-    <li> A is non-singular $(\text{det}(A) \neq 0)$. **Exemplo:**
+<div class="lista">
+<ol type="I">
+<li> All elements on the main diagonal are positive.</li>
+<li> All main submatrix $A_{k}$ is positive definite for all $k = 1, \dots, p$.</li>
+<li> A is non-singular $(\text{det}(A) \neq 0)$. **Exemplo:**
 <div class="equation">
 $$A = \begin{bmatrix}
             a & b \\
@@ -325,9 +326,10 @@ $$\Rightarrow A^{-1} = \cfrac{1}{\text{det}(A)}\begin{bmatrix}
             - b & a \\
           \end{bmatrix}$$
 </div>
-  </li>
-  <li> $A^{-1$ is positive definite.</li>
-  </ol> 
+</li>
+<li> $A^{-1}$ is positive definite.</li>
+</ol> 
+</div>
 </p>
 </div>
 
