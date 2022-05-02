@@ -77,7 +77,7 @@ in which $I$ is identity matrix. So this system has a non-trivial solution if, a
     \end{cases}$$
 </div>
 
-In this manner, $(A - \lambda I)$ is non-invertible and singular $(\vec{v} \neq 0(A - \lambda I)^{-1} = 0)$.
+In this manner, $(A - \lambda I)$ is non-invertible and singular. If $\vec{v} \neq 0(A - \lambda I)^{-1} = 0$, so $(A - \lambda I)$ is invertible it has a trivial solution and is not what we want!
 
 Example: Let A is a matrix, and now we will find its eigenvectors and eigenvalues.
 
@@ -217,8 +217,22 @@ $$\begin{aligned}
 </div>
 with $\vec{v}_{j} = (v_{j_{1}}, \dots, v_{j_{p}})^{\top} \in \mathbb{R}^{p \times 1}$, $i \neq j$ and $i, j, k = 1, \dots, p$; 
 
+<div class="Preposition">
+<p><strong>Preposition:</strong>
+An orthogonal set of non-zero vectors is linearly independent.
+</p>
+</div>
+<div class="Reminder">
+<p><strong>Reminder:</strong>
+
+Linearly independent $\nrightarrow$ Orthogonal
+
+Linearly independent $\leftarrow$ Orthogonal
+</p>
+</div>
+
 </li>
-<li> It is always possible to obtain a basis from orthonormal eigenvectors. **Then:**
+<li> It is always possible to obtain a basis $P$ which $P^{\top} = [e_{1}, \dots, e_{p}]$ from orthonormal eigenvectors. **Then:**
 
 <div class="equation">
 $$ \begin{matrix}
@@ -228,13 +242,8 @@ $$ \begin{matrix}
 \end{matrix}$$
 </div>
 
-with $e_{i}^{\top} e_{j} = 0$ and $e_{i}^{\top} e_{i} = 1$, $i \neq j$ and $i, j = 1, \dots, p$.
+with $e_{i}^{\top} e_{j} = 0$ and $e_{i}^{\top} e_{i} = 1$, $i \neq j$ and $i, j = 1, \dots, p$;
 
-<div class="Preposition">
-<p><strong>Preposition:</strong>
-An orthogonal set of non-zero vectors is linearly independent.
-</p>
-</div>;
 </li>
   <li> $\mu - \sigma$ and $\mu + \sigma$ are inflection points of $f(x)$. </li>
   <li> The density of Normal Distribution is log-concave. </li>

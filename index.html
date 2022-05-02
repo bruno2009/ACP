@@ -421,8 +421,9 @@ I)\)</span> is zero (a consequence of Cramer’s Rule),</p>
     \end{cases}\]</span></p>
 </div>
 <p>In this manner, <span class="math inline">\((A - \lambda I)\)</span>
-is non-invertible and singular <span class="math inline">\((\vec{v} \neq
-0(A - \lambda I)^{-1} = 0)\)</span>.</p>
+is non-invertible and singular. If <span class="math inline">\(\vec{v}
+\neq 0(A - \lambda I)^{-1} = 0\)</span>, so <span class="math inline">\((A - \lambda I)\)</span> is invertible it has a
+trivial solution and is not what we want!</p>
 <p>Example: Let A is a matrix, and now we will find its eigenvectors and
 eigenvalues.</p>
 <div class="equation">
@@ -559,10 +560,24 @@ orthogonal to each other. <strong>Then:</strong></p>
 </div>
 <p>with <span class="math inline">\(\vec{v}_{j} = (v_{j_{1}}, \dots,
 v_{j_{p}})^{\top} \in \mathbb{R}^{p \times 1}\)</span>, <span class="math inline">\(i \neq j\)</span> and <span class="math inline">\(i, j, k = 1, \dots, p\)</span>;</p>
+<div class="Preposition">
+<p>
+<strong>Preposition:</strong> An orthogonal set of non-zero vectors is
+linearly independent.
+</p>
+</div>
+<div class="Reminder">
+<p>
+<p><strong>Reminder:</strong></p>
+<p>Linearly independent <span class="math inline">\(\nrightarrow\)</span> Orthogonal</p>
+Linearly independent <span class="math inline">\(\leftarrow\)</span>
+Orthogonal
+</p>
+</div>
 </li>
 <li>
-<p>It is always possible to obtain a basis from orthonormal
-eigenvectors. <strong>Then:</strong></p>
+<p>It is always possible to obtain a basis <span class="math inline">\(P\)</span> which <span class="math inline">\(P^{\top} = [e_{1}, \dots, e_{p}]\)</span> from
+orthonormal eigenvectors. <strong>Then:</strong></p>
 <div class="equation">
 <p><span class="math display">\[ \begin{matrix}
 \cfrac{\vec{v}_{1}}{||\vec{v}_{1}||} = (e_{11}, e_{12}, \dots,
@@ -573,14 +588,7 @@ e_{pp})^{\top} = e_{p}^{\top}
 \end{matrix}\]</span></p>
 </div>
 <p>with <span class="math inline">\(e_{i}^{\top} e_{j} = 0\)</span> and
-<span class="math inline">\(e_{i}^{\top} e_{i} = 1\)</span>, <span class="math inline">\(i \neq j\)</span> and <span class="math inline">\(i, j = 1, \dots, p\)</span>.</p>
-<div class="Preposition">
-<p>
-<strong>Preposition:</strong> An orthogonal set of non-zero vectors is
-linearly independent.
-</p>
-</div>
-;
+<span class="math inline">\(e_{i}^{\top} e_{i} = 1\)</span>, <span class="math inline">\(i \neq j\)</span> and <span class="math inline">\(i, j = 1, \dots, p\)</span>;</p>
 </li>
 <li>
 <span class="math inline">\(\mu - \sigma\)</span> and <span class="math inline">\(\mu + \sigma\)</span> are inflection points of
