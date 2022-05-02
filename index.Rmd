@@ -30,7 +30,7 @@ knitr::opts_chunk$set(tidy.opts=list( width.cutoff = 30 ), tidy=T)
 <section class="section" >
   <div class="content">
 
-This topic will discuss the mathematics of  Eigenvectors and Eigenvalues, Spectral Decomposition Theorem, and Principal Component Analysis. Moreover finally, I will show an application of this technique. 
+This topic will discuss the mathematics of  Eigenvectors and Eigenvalues, Spectral Decomposition Theorem, and Principal Component Analysis. Moreover, I will show an application of this technique. 
 
 # Eigenvectors and Eigenvalues
 
@@ -199,23 +199,24 @@ $$\Rightarrow A = A^{\top}$$
 
 <div class="Teorema">
 <p><strong>Spectral Theorem (Symmetric matrix):</strong>
-Let $A \in \mathbb{R}^{p \times p}$, so
+Let $A \in \mathbb{R}^{p \times p}$, then
 </p>
 </div>
 
 <div class="lista">
-  <ol type="a">
+  <ol type="I">
   <li> The eigenvalues $\lambda_{1}, \dots, \lambda_{p}$ are real;</li>
   <li> The eigenvectors of A associated with different eigenvalues are orthogonal to each other. **Then:**
 
 <div class="equation">
 $$\begin{aligned}
 <\vec{v}_{i}, \vec{v}_{j}> &= \vec{v}_{i}^{\top} \vec{v}_{j} \\[10pt]
- &=  \sum_{k=1}^{p} \vec{v}_{i_{k}}\vec{v}_{j_{k}}  \\[10pt]
+ &=  \sum_{k=1}^{p} \vec{v}_{ki}\vec{v}_{kj}  \\[10pt]
+ &= \vec{v}_{1i}\vec{v}_{1j} + \dots+ \vec{v}_{pi}\vec{v}_{pj} \\[10pt]
  &= 0
 \end{aligned}$$
 </div>
-with $\vec{v}_{j} = (v_{j_{1}}, \dots, v_{j_{p}})^{\top} \in \mathbb{R}^{p \times 1}$, $i \neq j$ and $i, j, k = 1, \dots, p$; 
+with $\vec{v}_{j} = (v_{1j}, \dots, v_{pj})^{\top} \in \mathbb{R}^{p \times 1}$, $i \neq j$ and $i, j, k = 1, \dots, p$; 
 
 <div class="Preposition">
 <p><strong>Preposition:</strong>
@@ -232,23 +233,46 @@ Linearly independent $\leftarrow$ Orthogonal
 </div>
 
 </li>
-<li> It is always possible to obtain a basis $P$ which $P^{\top} = [e_{1}, \dots, e_{p}]$ from orthonormal eigenvectors. **Then:**
+<li> It is always possible to obtain a basis $\{e_{1}, \dots, e_{p}\}$ of orthonormal eigenvectors. **Then:**
 
 <div class="equation">
 $$ \begin{matrix}
- \cfrac{\vec{v}_{1}}{||\vec{v}_{1}||} = (e_{11}, e_{12}, \dots, e_{1p})^{\top} = e_{1}^{\top} \\
+ \cfrac{\vec{v}_{1}}{||\vec{v}_{1}||} = (e_{11}, e_{21}, \dots, e_{p1})^{\top} = e_{1} \\
+  \cfrac{\vec{v}_{2}}{||\vec{v}_{2}||} = (e_{12}, e_{22}, \dots, e_{p2})^{\top} = e_{1} \\
   \vdots\\
- \cfrac{\vec{v}_{p}}{||\vec{v}_{p}||} = (e_{p1}, e_{p2}, \dots, e_{pp})^{\top} = e_{p}^{\top} 
+ \cfrac{\vec{v}_{p}}{||\vec{v}_{p}||} = (e_{1p}, e_{2p}, \dots, e_{pp})^{\top} = e_{p}
 \end{matrix}$$
 </div>
 
 with $e_{i}^{\top} e_{j} = 0$ and $e_{i}^{\top} e_{i} = 1$, $i \neq j$ and $i, j = 1, \dots, p$;
 
 </li>
-  <li> $\mu - \sigma$ and $\mu + \sigma$ are inflection points of $f(x)$. </li>
-  <li> The density of Normal Distribution is log-concave. </li>
-  </ol> 
-  </div>
+<li> This relation is valid $P^{-1}AP = D$, so $P$ is defined as follows 
+
+<div class="equation">
+$$ P_{p \times p} =\begin{bmatrix}
+ e_{1} & \dots & e_{p} \\
+\end{bmatrix} = 
+\begin{bmatrix}
+ e_{11} &  e_{12} & \dots & e_{1p} \\
+ e_{21} &  e_{22} & \dots & e_{2p} \\
+ \vdots &  \vdots & \ddots & \vdots \\
+ e_{p1} &  e_{p2} & \dots & e_{pp} \\
+\end{bmatrix}$$ 
+</div>
+
+where $P$ is a orthonormal eigenvectors matrix.
+<div class="Reminder">
+<p><strong>Reminder:</strong>
+Orthonormal eigenvectors matrix there are following property
+$P^{\top}P = I = PP^{\top}$ and $P^{-1} = P^{\top}$
+</p>
+</div>
+
+</li>
+<li> The density of Normal Distribution is log-concave. </li>
+</ol> 
+</div>
 
 
 

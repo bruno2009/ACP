@@ -368,8 +368,7 @@ Principal Component Analysis
 <div class="content">
 <p>This topic will discuss the mathematics of Eigenvectors and
 Eigenvalues, Spectral Decomposition Theorem, and Principal Component
-Analysis. Moreover finally, I will show an application of this
-technique.</p>
+Analysis. Moreover, I will show an application of this technique.</p>
 <div id="eigenvectors-and-eigenvalues" class="section level1">
 <h1>Eigenvectors and Eigenvalues</h1>
 <div class="Definition">
@@ -538,11 +537,11 @@ Thus,</p>
 </div>
 <div class="Teorema">
 <p>
-<strong>Spectral Theorem (Symmetric matrix):</strong> Let <span class="math inline">\(A \in \mathbb{R}^{p \times p}\)</span>, so
+<strong>Spectral Theorem (Symmetric matrix):</strong> Let <span class="math inline">\(A \in \mathbb{R}^{p \times p}\)</span>, then
 </p>
 </div>
 <div class="lista">
-<ol type="a">
+<ol type="I">
 <li>
 The eigenvalues <span class="math inline">\(\lambda_{1}, \dots,
 \lambda_{p}\)</span> are real;
@@ -554,12 +553,14 @@ orthogonal to each other. <strong>Then:</strong></p>
 <p><span class="math display">\[\begin{aligned}
 &lt;\vec{v}_{i}, \vec{v}_{j}&gt; &amp;= \vec{v}_{i}^{\top} \vec{v}_{j}
 \\[10pt]
-&amp;=  \sum_{k=1}^{p} \vec{v}_{i_{k}}\vec{v}_{j_{k}}  \\[10pt]
+&amp;=  \sum_{k=1}^{p} \vec{v}_{ki}\vec{v}_{kj}  \\[10pt]
+&amp;= \vec{v}_{1i}\vec{v}_{1j} + \dots+ \vec{v}_{pi}\vec{v}_{pj}
+\\[10pt]
 &amp;= 0
 \end{aligned}\]</span></p>
 </div>
-<p>with <span class="math inline">\(\vec{v}_{j} = (v_{j_{1}}, \dots,
-v_{j_{p}})^{\top} \in \mathbb{R}^{p \times 1}\)</span>, <span class="math inline">\(i \neq j\)</span> and <span class="math inline">\(i, j, k = 1, \dots, p\)</span>;</p>
+<p>with <span class="math inline">\(\vec{v}_{j} = (v_{1j}, \dots,
+v_{pj})^{\top} \in \mathbb{R}^{p \times 1}\)</span>, <span class="math inline">\(i \neq j\)</span> and <span class="math inline">\(i, j, k = 1, \dots, p\)</span>;</p>
 <div class="Preposition">
 <p>
 <strong>Preposition:</strong> An orthogonal set of non-zero vectors is
@@ -576,23 +577,47 @@ Orthogonal
 </div>
 </li>
 <li>
-<p>It is always possible to obtain a basis <span class="math inline">\(P\)</span> which <span class="math inline">\(P^{\top} = [e_{1}, \dots, e_{p}]\)</span> from
-orthonormal eigenvectors. <strong>Then:</strong></p>
+<p>It is always possible to obtain a basis <span class="math inline">\(\{e_{1}, \dots, e_{p}\}\)</span> of orthonormal
+eigenvectors. <strong>Then:</strong></p>
 <div class="equation">
 <p><span class="math display">\[ \begin{matrix}
-\cfrac{\vec{v}_{1}}{||\vec{v}_{1}||} = (e_{11}, e_{12}, \dots,
-e_{1p})^{\top} = e_{1}^{\top} \\
+\cfrac{\vec{v}_{1}}{||\vec{v}_{1}||} = (e_{11}, e_{21}, \dots,
+e_{p1})^{\top} = e_{1} \\
+  \cfrac{\vec{v}_{2}}{||\vec{v}_{2}||} = (e_{12}, e_{22}, \dots,
+e_{p2})^{\top} = e_{1} \\
   \vdots\\
-\cfrac{\vec{v}_{p}}{||\vec{v}_{p}||} = (e_{p1}, e_{p2}, \dots,
-e_{pp})^{\top} = e_{p}^{\top}
+\cfrac{\vec{v}_{p}}{||\vec{v}_{p}||} = (e_{1p}, e_{2p}, \dots,
+e_{pp})^{\top} = e_{p}
 \end{matrix}\]</span></p>
 </div>
 <p>with <span class="math inline">\(e_{i}^{\top} e_{j} = 0\)</span> and
 <span class="math inline">\(e_{i}^{\top} e_{i} = 1\)</span>, <span class="math inline">\(i \neq j\)</span> and <span class="math inline">\(i, j = 1, \dots, p\)</span>;</p>
 </li>
 <li>
-<span class="math inline">\(\mu - \sigma\)</span> and <span class="math inline">\(\mu + \sigma\)</span> are inflection points of
-<span class="math inline">\(f(x)\)</span>.
+<p>This relation is valid <span class="math inline">\(P^{-1}AP =
+D\)</span>, so <span class="math inline">\(P\)</span> is defined as
+follows</p>
+<div class="equation">
+<p><span class="math display">\[ P_{p \times p} =\begin{bmatrix}
+e_{1} &amp; \dots &amp; e_{p} \\
+\end{bmatrix} =
+\begin{bmatrix}
+e_{11} &amp;  e_{12} &amp; \dots &amp; e_{1p} \\
+e_{21} &amp;  e_{22} &amp; \dots &amp; e_{2p} \\
+\vdots &amp;  \vdots &amp; \ddots &amp; \vdots \\
+e_{p1} &amp;  e_{p2} &amp; \dots &amp; e_{pp} \\
+\end{bmatrix}\]</span></p>
+</div>
+where <span class="math inline">\(P\)</span> is a orthonormal
+eigenvectors matrix.
+<div class="Reminder">
+<p>
+<strong>Reminder:</strong> Orthonormal eigenvectors matrix there are
+following property <span class="math inline">\(P^{\top}P = I =
+PP^{\top}\)</span> and <span class="math inline">\(P^{-1} =
+P^{\top}\)</span>
+</p>
+</div>
 </li>
 <li>
 The density of Normal Distribution is log-concave.
