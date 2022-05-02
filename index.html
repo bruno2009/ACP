@@ -548,7 +548,7 @@ The eigenvalues <span class="math inline">\(\lambda_{1}, \dots,
 </li>
 <li>
 <p>The eigenvectors of A associated with different eigenvalues are
-orthogonal to each other. <strong>In other words:</strong></p>
+orthogonal to each other. <strong>Then:</strong></p>
 <div class="equation">
 <p><span class="math display">\[\begin{aligned}
 &lt;\vec{v}_{i}, \vec{v}_{j}&gt; &amp;= \vec{v}_{i}^{\top} \vec{v}_{j}
@@ -561,7 +561,26 @@ orthogonal to each other. <strong>In other words:</strong></p>
 v_{j_{p}})^{\top} \in \mathbb{R}^{p \times 1}\)</span>, <span class="math inline">\(i \neq j\)</span> and <span class="math inline">\(i, j, k = 1, \dots, p\)</span>;</p>
 </li>
 <li>
-it is always possible to obtain a basis B from orthonormal eigenvectors;
+<p>It is always possible to obtain a basis from orthonormal
+eigenvectors. <strong>Then:</strong></p>
+<div class="equation">
+<p><span class="math display">\[ \begin{matrix}
+\cfrac{\vec{v}_{1}}{||\vec{v}_{1}||} = (e_{11}, e_{12}, \dots,
+e_{1p})^{\top} = e_{1}^{\top} \\
+  \vdots\\
+\cfrac{\vec{v}_{p}}{||\vec{v}_{p}||} = (e_{p1}, e_{p2}, \dots,
+e_{pp})^{\top} = e_{p}^{\top}
+\end{matrix}\]</span></p>
+</div>
+<p>with <span class="math inline">\(e_{i}^{\top} e_{j} = 0\)</span> and
+<span class="math inline">\(e_{i}^{\top} e_{i} = 1\)</span>, <span class="math inline">\(i \neq j\)</span> and <span class="math inline">\(i, j = 1, \dots, p\)</span>.</p>
+<div class="Preposition">
+<p>
+<strong>Preposition:</strong> An orthogonal set of non-zero vectors is
+linearly independent.
+</p>
+</div>
+;
 </li>
 <li>
 <span class="math inline">\(\mu - \sigma\)</span> and <span class="math inline">\(\mu + \sigma\)</span> are inflection points of

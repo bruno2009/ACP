@@ -206,7 +206,7 @@ Let $A \in \mathbb{R}^{p \times p}$, so
 <div class="lista">
   <ol type="a">
   <li> The eigenvalues $\lambda_{1}, \dots, \lambda_{p}$ are real;</li>
-  <li> The eigenvectors of A associated with different eigenvalues are orthogonal to each other. **In other words:**
+  <li> The eigenvectors of A associated with different eigenvalues are orthogonal to each other. **Then:**
 
 <div class="equation">
 $$\begin{aligned}
@@ -218,7 +218,23 @@ $$\begin{aligned}
 with $\vec{v}_{j} = (v_{j_{1}}, \dots, v_{j_{p}})^{\top} \in \mathbb{R}^{p \times 1}$, $i \neq j$ and $i, j, k = 1, \dots, p$; 
 
 </li>
-<li> it is always possible to obtain a basis B from orthonormal eigenvectors;
+<li> It is always possible to obtain a basis from orthonormal eigenvectors. **Then:**
+
+<div class="equation">
+$$ \begin{matrix}
+ \cfrac{\vec{v}_{1}}{||\vec{v}_{1}||} = (e_{11}, e_{12}, \dots, e_{1p})^{\top} = e_{1}^{\top} \\
+  \vdots\\
+ \cfrac{\vec{v}_{p}}{||\vec{v}_{p}||} = (e_{p1}, e_{p2}, \dots, e_{pp})^{\top} = e_{p}^{\top} 
+\end{matrix}$$
+</div>
+
+with $e_{i}^{\top} e_{j} = 0$ and $e_{i}^{\top} e_{i} = 1$, $i \neq j$ and $i, j = 1, \dots, p$.
+
+<div class="Preposition">
+<p><strong>Preposition:</strong>
+An orthogonal set of non-zero vectors is linearly independent.
+</p>
+</div>;
 </li>
   <li> $\mu - \sigma$ and $\mu + \sigma$ are inflection points of $f(x)$. </li>
   <li> The density of Normal Distribution is log-concave. </li>
