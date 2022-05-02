@@ -205,9 +205,21 @@ Let $A \in \mathbb{R}^{p \times p}$, so
 
 <div class="lista">
   <ol type="a">
-  <li> The curve of Normal Distribution is unimodal around its $\mu$. </li>
-  <li> $x = \mu$ is the maximum point to $f(x)$. </li>
-  <li> Beyond $\mu$ to be the mean, it is at the same time median and mode. </li>
+  <li> The eigenvalues $\lambda_{1}, \dots, \lambda_{p}$ are real;</li>
+  <li> The eigenvectors of A associated with different eigenvalues are orthogonal to each other. **In other words:**
+
+<div class="equation">
+$$\begin{aligned}
+<\vec{v}_{i}, \vec{v}_{j}> &= \vec{v}_{i}^{\top} \vec{v}_{j} \\[10pt]
+ &=  \sum_{k=1}^{p} \vec{v}_{i_{k}}\vec{v}_{j_{k}}  \\[10pt]
+ &= 0
+\end{aligned}$$
+</div>
+with $\vec{v}_{j} = (v_{j_{1}}, \dots, v_{j_{p}})^{\top} \in \mathbb{R}^{p \times 1}$, $i \neq j$ and $i, j, k = 1, \dots, p$; 
+
+</li>
+<li> it is always possible to obtain a basis B from orthonormal eigenvectors;
+</li>
   <li> $\mu - \sigma$ and $\mu + \sigma$ are inflection points of $f(x)$. </li>
   <li> The density of Normal Distribution is log-concave. </li>
   </ol> 

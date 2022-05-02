@@ -543,15 +543,25 @@ Thus,</p>
 <div class="lista">
 <ol type="a">
 <li>
-The curve of Normal Distribution is unimodal around its <span class="math inline">\(\mu\)</span>.
+The eigenvalues <span class="math inline">\(\lambda_{1}, \dots,
+\lambda_{p}\)</span> are real;
 </li>
 <li>
-<span class="math inline">\(x = \mu\)</span> is the maximum point to
-<span class="math inline">\(f(x)\)</span>.
+<p>The eigenvectors of A associated with different eigenvalues are
+orthogonal to each other. <strong>In other words:</strong></p>
+<div class="equation">
+<p><span class="math display">\[\begin{aligned}
+&lt;\vec{v}_{i}, \vec{v}_{j}&gt; &amp;= \vec{v}_{i}^{\top} \vec{v}_{j}
+\\[10pt]
+&amp;=  \sum_{k=1}^{p} \vec{v}_{i_{k}}\vec{v}_{j_{k}}  \\[10pt]
+&amp;= 0
+\end{aligned}\]</span></p>
+</div>
+<p>with <span class="math inline">\(\vec{v}_{j} = (v_{j_{1}}, \dots,
+v_{j_{p}})^{\top} \in \mathbb{R}^{p \times 1}\)</span>, <span class="math inline">\(i \neq j\)</span> and <span class="math inline">\(i, j, k = 1, \dots, p\)</span>;</p>
 </li>
 <li>
-Beyond <span class="math inline">\(\mu\)</span> to be the mean, it is at
-the same time median and mode.
+it is always possible to obtain a basis B from orthonormal eigenvectors;
 </li>
 <li>
 <span class="math inline">\(\mu - \sigma\)</span> and <span class="math inline">\(\mu + \sigma\)</span> are inflection points of
