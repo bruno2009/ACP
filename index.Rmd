@@ -219,7 +219,7 @@ $$\begin{aligned}
 with $\vec{v}_{j} = (v_{1j}, \dots, v_{pj})^{\top} \in \mathbb{R}^{p \times 1}$, $i \neq j$ and $i, j, k = 1, \dots, p$; 
 
 <div class="Preposition">
-<p><strong>Preposition:</strong>
+<p><strong>Preposition 2</strong>.
 An orthogonal set of non-zero vectors is linearly independent.
 </p>
 </div>
@@ -244,7 +244,14 @@ $$ \begin{matrix}
 \end{matrix}$$
 </div>
 
-with $e_{i}^{\top} e_{j} = 0$ and $e_{i}^{\top} e_{i} = 1$, $i \neq j$ and $i, j = 1, \dots, p$;
+<div class="equation">
+$$ e_{i}^{\top} e_{j} = \delta_{ij} =   \begin{cases}
+      0 & \text{if } i \neq j\\
+      1 & \text{if } i = j
+    \end{cases}$$
+</div>
+
+and $i, j = 1, \dots, p$;
 
 </li>
 <li> The relation is valid $P^{-1}AP = D$, so $P$ is defined as follows 
@@ -287,30 +294,47 @@ where $D$ is a diagonal matrix in which eigenvalues are diagonal elements;
 </ol> 
 </div>
 
-
-
-
-
-
-<!--
-The first one is the most famous distribution, is the Bernoulli distribution. Let $X$ a binary random variable with probability density function (PDF) $f_{x}$ . Then, $X \sim Ber(p)$ has PDF
-
-<div class="equation">
-  $$f(x) = \P(X = x) = p^{x} (1-p)^{1-x}$$
+<div class="Definition">
+<p><strong>Definition 2</strong>. A quadratic form in $\mathbb{R}^{n}$ is a function $Q: \mathbb{R}^{p} \rightarrow \mathbb{R}$ of form $Q(x) = x^{t}Ax$.
+</p>
 </div>
-    
-where the support is $X \in \{0, 1\}$ and parametric space is $p \in (0, 1)$. The expected value (mathematical expectation) is $\E(X) = p$ and variance is $\var(X) = p(1 - p)$.
 
-I will not discuss moments in statistics here where the first moment is mathematical expectations and the second is related to variance. Nevertheless, [Wikipedia](https://en.wikipedia.org/wiki/Moment_(mathematics)) is a good site where you might start to study more about this topic. I love this concept because everything concerning statistical models is linked to a mean, mainly in generalized linear models ([MLG](https://en.wikipedia.org/wiki/Generalized_linear_model)). But it is a topic to see forward. 
+<div class="lista">
+  <ol type="I">
+    <li> $A$ is positive definite $\Leftrightarrow$ If $Q(x) > 0$, $\forall$ $x \in \mathbb{R}_{\small\setminus0}^{p}$.</li>
+    <li> $A$ is positive semidefinite $\Leftrightarrow$ If $Q(x) \geq 0$, $\forall$ $x \in \mathbb{R}_{\small\setminus0}^{p}$.</li>
+  </ol> 
+</div>
 
 
-<span style="width:40px;display:inline-block"></span>
+<div class="Important">
+<p><strong>Important:</strong> If $A \in \mathbb{R}^{p \times p}$ and positive definite.
+  <ol type="I">
+    <li> All elements on the main diagonal are positive.</li>
+    <li> All main submatrix $A_{k}$ is positive definite for all $k = 1, \dots, p$.</li>
+    <li> A is non-singular $(\text{det}(A) \neq 0)$. **Exemplo:**
+<div class="equation">
+$$A = \begin{bmatrix}
+            a & b \\
+            b & c \\
+          \end{bmatrix} \Rightarrow \text{det}(A) = ad - bb$$
+</div>
+<div class="equation">
+$$\Rightarrow A^{-1} = \cfrac{1}{\text{det}(A)}\begin{bmatrix}
+            d & - b \\
+            - b & a \\
+          \end{bmatrix}$$
+</div>
+  </li>
+  <li> $A^{-1$ is positive definite.</li>
+  </ol> 
+</p>
+</div>
 
-```{r warning=FALSE, message=FALSE, fig.align="center", fig.height=4, class.source="watch-out"}
-set.seed(123)
 
-```
--->
+
+
+
 
 
  

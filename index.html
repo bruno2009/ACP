@@ -563,7 +563,7 @@ orthogonal to each other. <strong>Then:</strong></p>
 v_{pj})^{\top} \in \mathbb{R}^{p \times 1}\)</span>, <span class="math inline">\(i \neq j\)</span> and <span class="math inline">\(i, j, k = 1, \dots, p\)</span>;</p>
 <div class="Preposition">
 <p>
-<strong>Preposition:</strong> An orthogonal set of non-zero vectors is
+<strong>Preposition 2</strong>. An orthogonal set of non-zero vectors is
 linearly independent.
 </p>
 </div>
@@ -590,8 +590,14 @@ e_{p2})^{\top} = e_{1} \\
 e_{pp})^{\top} = e_{p}
 \end{matrix}\]</span></p>
 </div>
-<p>with <span class="math inline">\(e_{i}^{\top} e_{j} = 0\)</span> and
-<span class="math inline">\(e_{i}^{\top} e_{i} = 1\)</span>, <span class="math inline">\(i \neq j\)</span> and <span class="math inline">\(i, j = 1, \dots, p\)</span>;</p>
+<div class="equation">
+<p><span class="math display">\[ e_{i}^{\top} e_{j} = \delta_{ij}
+=   \begin{cases}
+      0 &amp; \text{if } i \neq j\\
+      1 &amp; \text{if } i = j
+    \end{cases}\]</span></p>
+</div>
+<p>and <span class="math inline">\(i, j = 1, \dots, p\)</span>;</p>
 </li>
 <li>
 <p>The relation is valid <span class="math inline">\(P^{-1}AP =
@@ -634,25 +640,60 @@ which eigenvalues are diagonal elements;</p>
 </li>
 </ol>
 </div>
-<!--
-The first one is the most famous distribution, is the Bernoulli distribution. Let $X$ a binary random variable with probability density function (PDF) $f_{x}$ . Then, $X \sim Ber(p)$ has PDF
-
-<div class="equation">
-  $$f(x) = \P(X = x) = p^{x} (1-p)^{1-x}$$
+<div class="Definition">
+<p>
+<strong>Definition 2</strong>. A quadratic form in <span class="math inline">\(\mathbb{R}^{n}\)</span> is a function <span class="math inline">\(Q: \mathbb{R}^{p} \rightarrow \mathbb{R}\)</span>
+of form <span class="math inline">\(Q(x) = x^{t}Ax\)</span>.
+</p>
 </div>
-    
-where the support is $X \in \{0, 1\}$ and parametric space is $p \in (0, 1)$. The expected value (mathematical expectation) is $\E(X) = p$ and variance is $\var(X) = p(1 - p)$.
-
-I will not discuss moments in statistics here where the first moment is mathematical expectations and the second is related to variance. Nevertheless, [Wikipedia](https://en.wikipedia.org/wiki/Moment_(mathematics)) is a good site where you might start to study more about this topic. I love this concept because everything concerning statistical models is linked to a mean, mainly in generalized linear models ([MLG](https://en.wikipedia.org/wiki/Generalized_linear_model)). But it is a topic to see forward. 
-
-
-<span style="width:40px;display:inline-block"></span>
-
-
-```{.r .watch-out}
-set.seed(123)
-```
--->
+<div class="lista">
+<ol type="I">
+<li>
+<span class="math inline">\(A\)</span> is positive definite <span class="math inline">\(\Leftrightarrow\)</span> If <span class="math inline">\(Q(x) &gt; 0\)</span>, <span class="math inline">\(\forall\)</span> <span class="math inline">\(x \in
+\mathbb{R}_{\small\setminus0}^{p}\)</span>.
+</li>
+<li>
+<span class="math inline">\(A\)</span> is positive semidefinite <span class="math inline">\(\Leftrightarrow\)</span> If <span class="math inline">\(Q(x) \geq 0\)</span>, <span class="math inline">\(\forall\)</span> <span class="math inline">\(x \in
+\mathbb{R}_{\small\setminus0}^{p}\)</span>.
+</li>
+</ol>
+</div>
+<div class="Important">
+<p>
+<strong>Important:</strong> If <span class="math inline">\(A \in
+\mathbb{R}^{p \times p}\)</span> and positive definite.
+<ol type="I">
+<li>
+All elements on the main diagonal are positive.
+</li>
+<li>
+All main submatrix <span class="math inline">\(A_{k}\)</span> is
+positive definite for all <span class="math inline">\(k = 1, \dots,
+p\)</span>.
+</li>
+<li>
+A is non-singular <span class="math inline">\((\text{det}(A) \neq
+0)\)</span>. <strong>Exemplo:</strong>
+<div class="equation">
+<p><span class="math display">\[A = \begin{bmatrix}
+            a &amp; b \\
+            b &amp; c \\
+          \end{bmatrix} \Rightarrow \text{det}(A) = ad - bb\]</span></p>
+</div>
+<div class="equation">
+<p><span class="math display">\[\Rightarrow A^{-1} =
+\cfrac{1}{\text{det}(A)}\begin{bmatrix}
+            d &amp; - b \\
+            - b &amp; a \\
+          \end{bmatrix}\]</span></p>
+</div>
+</li>
+<li>
+<span class="math inline">\(A^{-1\)</span> is positive definite.
+</li>
+</ol>
+</p>
+</div>
 </div>
 <div id="references" class="section level1">
 <h1>REFERENCES</h1>
