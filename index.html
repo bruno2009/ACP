@@ -366,9 +366,10 @@ Principal Component Analysis
 
 <section class="section">
 <div class="content">
-<p>In this topic, I will discuss the mathematics of Eigenvectors and
+<p>This topic will discuss the mathematics of Eigenvectors and
 Eigenvalues, Spectral Decomposition Theorem, and Principal Component
-Analysis. And finally, I will show an application of this technique.</p>
+Analysis. Moreover finally, I will show an application of this
+technique.</p>
 <div id="eigenvectors-and-eigenvalues" class="section level1">
 <h1>Eigenvectors and Eigenvalues</h1>
 <div class="Definition">
@@ -377,8 +378,9 @@ Analysis. And finally, I will show an application of this technique.</p>
 eigenvectors of <span class="math inline">\(T\)</span> if there exist a
 real number <span class="math inline">\(\lambda\)</span> which <span class="math inline">\(T(v) = \lambda v\)</span>. The <span class="math inline">\(\lambda\)</span> scalar is denominated by an
 eigenvalue of <span class="math inline">\(T\)</span> associated with
-<span class="math inline">\(v\)</span>. It can be concluded that <span class="math inline">\(v\)</span> and <span class="math inline">\(T\)</span> have the same support line (and thus
-the same direction.):
+<span class="math inline">\(v\)</span>. It can be concluded that <span class="math inline">\(v\)</span> and <span class="math inline">\(T\)</span> have the same support line (i.e. the
+linear transformation <span class="math inline">\(T\)</span> maps vector
+<span class="math inline">\(v\)</span> into the same direction):
 </p>
 </div>
 <div class="equation">
@@ -500,8 +502,8 @@ v_{2}
 1
 \end{bmatrix}\bigg\} \Rightarrow \vec{v} = (1, 1)^{\top}\]</span></p>
 </div>
-<p>and normalizing the vectors to their length 1, known as the unit
-vector; they are</p>
+<p>and normalizing the vectors to length 1, known as the unit vector;
+they are</p>
 <div class="equation">
 <p><span class="math display">\[ \frac{\vec{v}_{1}}{||\vec{v}_{1}||} =
 \begin{bmatrix}
@@ -525,6 +527,40 @@ vector; they are</p>
 Decomposition Theorem, but other methods could be used as Singular value
 decomposition.
 </p>
+</div>
+<p>An asymmetric matrix is a matrix that is equal to its transpose.
+Thus,</p>
+<div class="equation">
+<p><span class="math display">\[ A \in \mathcal{M}_{p}(\mathbb{R})
+\]</span> <span class="math display">\[ \Rightarrow A^{\top} \in
+\mathcal{M}_{p}(\mathbb{R}) \]</span> <span class="math display">\[\Rightarrow A = A^{\top}\]</span></p>
+</div>
+<div class="Teorema">
+<p>
+<strong>Spectral Theorem (Symmetric matrix):</strong> Let <span class="math inline">\(A \in \mathbb{R}^{p \times p}\)</span>, so
+</p>
+</div>
+<div class="lista">
+<ol type="a">
+<li>
+The curve of Normal Distribution is unimodal around its <span class="math inline">\(\mu\)</span>.
+</li>
+<li>
+<span class="math inline">\(x = \mu\)</span> is the maximum point to
+<span class="math inline">\(f(x)\)</span>.
+</li>
+<li>
+Beyond <span class="math inline">\(\mu\)</span> to be the mean, it is at
+the same time median and mode.
+</li>
+<li>
+<span class="math inline">\(\mu - \sigma\)</span> and <span class="math inline">\(\mu + \sigma\)</span> are inflection points of
+<span class="math inline">\(f(x)\)</span>.
+</li>
+<li>
+The density of Normal Distribution is log-concave.
+</li>
+</ol>
 </div>
 <!--
 The first one is the most famous distribution, is the Bernoulli distribution. Let $X$ a binary random variable with probability density function (PDF) $f_{x}$ . Then, $X \sim Ber(p)$ has PDF

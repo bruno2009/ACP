@@ -30,13 +30,13 @@ knitr::opts_chunk$set(tidy.opts=list( width.cutoff = 30 ), tidy=T)
 <section class="section" >
   <div class="content">
 
-In this topic, I will discuss the mathematics of  Eigenvectors and Eigenvalues, Spectral Decomposition Theorem, and Principal Component Analysis. And finally, I will show an application of this technique. 
+This topic will discuss the mathematics of  Eigenvectors and Eigenvalues, Spectral Decomposition Theorem, and Principal Component Analysis. Moreover finally, I will show an application of this technique. 
 
 # Eigenvectors and Eigenvalues
 
 <div class="Definition">
 <p><strong>Definition 1</strong>.
-Let a non-null vector $v$ (i.e. $\vec{v} \neq 0$), $v \in V$ (vector space) is said a eigenvectors of $T$ if there exist a real number $\lambda$ which $T(v) = \lambda v$. The $\lambda$ scalar is denominated by an eigenvalue of $T$ associated with $v$. It can be concluded that $v$ and $T$ have the same support line (and thus the same direction.):
+Let a non-null vector $v$ (i.e. $\vec{v} \neq 0$), $v \in V$ (vector space) is said a eigenvectors of $T$ if there exist a real number $\lambda$ which $T(v) = \lambda v$. The $\lambda$ scalar is denominated by an eigenvalue of $T$ associated with $v$. It can be concluded that $v$ and $T$ have the same support line (i.e. the linear transformation $T$ maps vector $v$ into the same direction):
 </p>
 </div>
 
@@ -165,7 +165,7 @@ $$ \lambda = 1 \sim \text{span}\bigg\{\begin{bmatrix}
 
 </div>
 
-and normalizing the vectors to their length 1, known as the unit vector; they are
+and normalizing the vectors to length 1, known as the unit vector; they are
 
 <div class="equation">
 $$ \frac{\vec{v}_{1}}{||\vec{v}_{1}||} = \begin{bmatrix}
@@ -187,6 +187,33 @@ $$ \frac{\vec{v}_{2}}{||\vec{v}_{2}||} = \begin{bmatrix}
 I will discuss only the Spectral Decomposition Theorem, but other methods could be used as Singular value decomposition.
 </p>
 </div>
+
+An asymmetric matrix is a matrix that is equal to its transpose. Thus, 
+
+<div class="equation">
+$$ A \in \mathcal{M}_{p}(\mathbb{R}) $$
+$$ \Rightarrow A^{\top} \in \mathcal{M}_{p}(\mathbb{R}) $$
+$$\Rightarrow A = A^{\top}$$
+</div>
+
+
+<div class="Teorema">
+<p><strong>Spectral Theorem (Symmetric matrix):</strong>
+Let $A \in \mathbb{R}^{p \times p}$, so
+</p>
+</div>
+
+<div class="lista">
+  <ol type="a">
+  <li> The curve of Normal Distribution is unimodal around its $\mu$. </li>
+  <li> $x = \mu$ is the maximum point to $f(x)$. </li>
+  <li> Beyond $\mu$ to be the mean, it is at the same time median and mode. </li>
+  <li> $\mu - \sigma$ and $\mu + \sigma$ are inflection points of $f(x)$. </li>
+  <li> The density of Normal Distribution is log-concave. </li>
+  </ol> 
+  </div>
+
+
 
 
 
