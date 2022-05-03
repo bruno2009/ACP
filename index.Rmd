@@ -371,7 +371,13 @@ Therefore, the sample covariance matrix is
 $$ S = \cfrac{1}{n - 1} \sum_{l = 1}^{n} (x_{l} - \overline{x})(x_{l} - \overline{x})^{\top}$$
 </div>
 
-Now let $y_{1 \times p} = (y_{1}, \dots, y_{p})^{\top} \in \mathbb{R}_{\small\setminus0}^{p}$ be any column vector. Thus
+Now let $Y_{1 \times p} = (y_{1}, \dots, y_{p})^{\top} \in \mathbb{R}_{\small\setminus0}^{p}$ be any column vector. Thus
+
+<div class="equation">
+$$
+
+$$
+</div>
 
 
 
