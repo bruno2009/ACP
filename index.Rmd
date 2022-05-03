@@ -19,7 +19,9 @@ link-citations: true
 biblio-style: authoryear
 ---
 
-
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\var}{\mathrm{Var}}
+\newcommand{\P}{\mathrm{P}}
 
 ```{r setup, include=FALSE, echo=FALSE}
 
@@ -32,7 +34,7 @@ knitr::opts_chunk$set(tidy.opts=list( width.cutoff = 30 ), tidy=T)
 
 This topic will discuss the mathematics of  Eigenvectors and Eigenvalues, Spectral Decomposition Theorem, and Principal Component Analysis. Moreover, I will show an application of this technique. 
 
-# Eigenvectors and Eigenvalues
+# EIGENVECTORS AND EIGENVALUES
 
 <div class="Definition">
 <p><strong>Definition 1</strong>.
@@ -180,7 +182,7 @@ $$ \frac{\vec{v}_{2}}{||\vec{v}_{2}||} = \begin{bmatrix}
 \end{bmatrix} $$
 </div>
 
-# Spectral Decomposition Theorem
+# SPECTRAL DECOMPOSITION THEOREM
 
 <div class="Reminder">
 <p><strong>Reminder:</strong>
@@ -295,14 +297,14 @@ where $D$ is a diagonal matrix in which eigenvalues are diagonal elements;
 </div>
 
 <div class="Definition">
-<p><strong>Definition 2</strong>. A quadratic form in $\mathbb{R}^{n}$ is a function $Q: \mathbb{R}^{p} \rightarrow \mathbb{R}$ of form $Q(x) = x^{t}Ax$.
+<p><strong>Definition 2</strong>. A quadratic form in $\mathbb{R}^{n}$ is a function $Q: \mathbb{R}^{p} \rightarrow \mathbb{R}$ of form $Q(y) = y^{\top}Ay$.
 </p>
 </div>
 
 <div class="lista">
   <ol type="I">
-    <li> $A$ is positive definite $\Leftrightarrow$ If $Q(x) > 0$, $\forall$ $x \in \mathbb{R}_{\small\setminus0}^{p}$.</li>
-    <li> $A$ is positive semidefinite $\Leftrightarrow$ If $Q(x) \geq 0$, $\forall$ $x \in \mathbb{R}_{\small\setminus0}^{p}$.</li>
+    <li> $A$ is positive definite $\Leftrightarrow$ If $Q(y) > 0$, $\forall$ $y \in \mathbb{R}_{\small\setminus0}^{p}$.</li>
+    <li> $A$ is positive semidefinite $\Leftrightarrow$ If $Q(y) \geq 0$, $\forall$ $y \in \mathbb{R}_{\small\setminus0}^{p}$.</li>
   </ol> 
 </div>
 
@@ -315,18 +317,15 @@ Hence
   </ol> 
 </div>
 
-
 <div class="Important">
 <p><strong>Important:</strong> If $A \in \mathbb{R}^{p \times p}$ and positive definite.
 <div class="lista">
 <ol type="I">
-<li> All elements on the main diagonal are positive.</li>
-<li> All main submatrix $A_{k}$ is positive definite for all $k = 1, \dots, p$.</li>
-<li> A is non-singular $(\text{det}(A) \neq 0)$. **Exemplo:**
+<li> A is non-singular $(\text{det}(A) > 0)$. **Exemplo:**
 <div class="equation">
 $$A = \begin{bmatrix}
             a & b \\
-            b & c \\
+            b & d \\
           \end{bmatrix} \Rightarrow \text{det}(A) = ad - bb$$
 </div>
 <div class="equation">
@@ -341,12 +340,53 @@ $$\Rightarrow A^{-1} = \cfrac{1}{\text{det}(A)}\begin{bmatrix}
 </div>
 </p>
 </div>
+<div class="Important">
+<p>If $A \in \mathbb{R}^{p \times p}$ and positive semidefinite.
+<div class="lista">
+<ol type="I">
+<li> All elements on the main diagonal are non-negative and $\mathrm{tr}(A) \geq 0$.</li>
+<li> All principal minors $A$ are nonnegative.</li>
+</ol> 
+</p>
+</div>
+
+
+# COVARIANCE MATRIX
+
+The covariance matrix is
+
+<div class="equation">
+$$ \Sigma = \E((X - \E(X))(X - \E(X))^{\top})$$
+</div>
+
+For a random sample vector $x_{l} = (x_{l1}, \dots, x_{lp})^{\top}$ with $l = 1, \dots, n$ and sample mean vector
+
+<div class="equation">
+$$ \overline{x} = \sum_{l = 1}^{n}\cfrac{x_{l}}{n} = (\overline{x}_{1}, \dots, \overline{x}_{p})^{\top}$$
+</div>
+
+Therefore, the sample covariance matrix is 
+
+<div class="equation">
+$$ S = \cfrac{1}{n - 1} \sum_{l = 1}^{n} (x_{l} - \overline{x})(x_{l} - \overline{x})^{\top}$$
+</div>
+
+Now let $y \in \mathbb{R}_{\small\setminus0}^{p}$ be any $n \times 1$ column vector. Thus
 
 
 
 
+<div class="interpretation">
+<p><strong>Interpretation:</strong> 
 
+<p><strong>Algebraically:</strong>. 
+</p>
 
+<p><strong>Geometrically:</strong>. 
+</p>
+
+</p>
+</div>
 
  
 # REFERENCES
@@ -359,8 +399,3 @@ nocite: '@*'
 
 </div>
 </section>
-
-
-
-
-

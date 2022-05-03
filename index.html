@@ -366,11 +366,12 @@ Principal Component Analysis
 
 <section class="section">
 <div class="content">
+
 <p>This topic will discuss the mathematics of Eigenvectors and
 Eigenvalues, Spectral Decomposition Theorem, and Principal Component
 Analysis. Moreover, I will show an application of this technique.</p>
 <div id="eigenvectors-and-eigenvalues" class="section level1">
-<h1>Eigenvectors and Eigenvalues</h1>
+<h1>EIGENVECTORS AND EIGENVALUES</h1>
 <div class="Definition">
 <p>
 <strong>Definition 1</strong>. Let a non-null vector <span class="math inline">\(v\)</span> (i.e. <span class="math inline">\(\vec{v} \neq 0\)</span>), <span class="math inline">\(v \in V\)</span> (vector space) is said a
@@ -520,7 +521,7 @@ they are</p>
 </div>
 </div>
 <div id="spectral-decomposition-theorem" class="section level1">
-<h1>Spectral Decomposition Theorem</h1>
+<h1>SPECTRAL DECOMPOSITION THEOREM</h1>
 <div class="Reminder">
 <p>
 <strong>Reminder:</strong> I will discuss only the Spectral
@@ -642,17 +643,17 @@ which eigenvalues are diagonal elements;</p>
 <div class="Definition">
 <p>
 <strong>Definition 2</strong>. A quadratic form in <span class="math inline">\(\mathbb{R}^{n}\)</span> is a function <span class="math inline">\(Q: \mathbb{R}^{p} \rightarrow \mathbb{R}\)</span>
-of form <span class="math inline">\(Q(x) = x^{t}Ax\)</span>.
+of form <span class="math inline">\(Q(y) = y^{\top}Ay\)</span>.
 </p>
 </div>
 <div class="lista">
 <ol type="I">
 <li>
-<span class="math inline">\(A\)</span> is positive definite <span class="math inline">\(\Leftrightarrow\)</span> If <span class="math inline">\(Q(x) &gt; 0\)</span>, <span class="math inline">\(\forall\)</span> <span class="math inline">\(x \in
+<span class="math inline">\(A\)</span> is positive definite <span class="math inline">\(\Leftrightarrow\)</span> If <span class="math inline">\(Q(y) &gt; 0\)</span>, <span class="math inline">\(\forall\)</span> <span class="math inline">\(y \in
 \mathbb{R}_{\small\setminus0}^{p}\)</span>.
 </li>
 <li>
-<span class="math inline">\(A\)</span> is positive semidefinite <span class="math inline">\(\Leftrightarrow\)</span> If <span class="math inline">\(Q(x) \geq 0\)</span>, <span class="math inline">\(\forall\)</span> <span class="math inline">\(x \in
+<span class="math inline">\(A\)</span> is positive semidefinite <span class="math inline">\(\Leftrightarrow\)</span> If <span class="math inline">\(Q(y) \geq 0\)</span>, <span class="math inline">\(\forall\)</span> <span class="math inline">\(y \in
 \mathbb{R}_{\small\setminus0}^{p}\)</span>.
 </li>
 </ol>
@@ -676,20 +677,12 @@ of form <span class="math inline">\(Q(x) = x^{t}Ax\)</span>.
 <div class="lista">
 <ol type="I">
 <li>
-All elements on the main diagonal are positive.
-</li>
-<li>
-All main submatrix <span class="math inline">\(A_{k}\)</span> is
-positive definite for all <span class="math inline">\(k = 1, \dots,
-p\)</span>.
-</li>
-<li>
-A is non-singular <span class="math inline">\((\text{det}(A) \neq
+A is non-singular <span class="math inline">\((\text{det}(A) &gt;
 0)\)</span>. <strong>Exemplo:</strong>
 <div class="equation">
 <p><span class="math display">\[A = \begin{bmatrix}
             a &amp; b \\
-            b &amp; c \\
+            b &amp; d \\
           \end{bmatrix} \Rightarrow \text{det}(A) = ad - bb\]</span></p>
 </div>
 <div class="equation">
@@ -705,6 +698,56 @@ A is non-singular <span class="math inline">\((\text{det}(A) \neq
 </li>
 </ol>
 </div>
+</p>
+</div>
+<div class="Important">
+<p>
+If <span class="math inline">\(A \in \mathbb{R}^{p \times p}\)</span>
+and positive semidefinite.
+<div class="lista">
+<ol type="I">
+<li>
+All elements on the main diagonal are non-negative and <span class="math inline">\(\mathrm{tr}(A) \geq 0\)</span>.
+</li>
+<li>
+All principal minors <span class="math inline">\(A\)</span> are
+nonnegative.
+</li>
+</ol>
+</p>
+</div>
+</div>
+<div id="covariance-matrix" class="section level1">
+<h1>COVARIANCE MATRIX</h1>
+<p>The covariance matrix is</p>
+<div class="equation">
+<p><span class="math display">\[ \Sigma = \mathrm{E}((X -
+\mathrm{E}(X))(X - \mathrm{E}(X))^{\top})\]</span></p>
+</div>
+<p>For a random sample vector <span class="math inline">\(x_{l} =
+(x_{l1}, \dots, x_{lp})^{\top}\)</span> with <span class="math inline">\(l = 1, \dots, n\)</span> and sample mean
+vector</p>
+<div class="equation">
+<p><span class="math display">\[ \overline{x} = \sum_{l =
+1}^{n}\cfrac{x_{l}}{n} = (\overline{x}_{1}, \dots,
+\overline{x}_{p})^{\top}\]</span></p>
+</div>
+<p>Therefore, the sample covariance matrix is</p>
+<div class="equation">
+<p><span class="math display">\[ S = \cfrac{1}{n - 1} \sum_{l = 1}^{n}
+(x_{l} - \overline{x})(x_{l} - \overline{x})^{\top}\]</span></p>
+</div>
+<p>Now let <span class="math inline">\(y \in
+\mathbb{R}_{\small\setminus0}^{p}\)</span> be any <span class="math inline">\(n \times 1\)</span> column vector. Thus</p>
+<div class="interpretation">
+<p>
+<p><strong>Interpretation:</strong></p>
+<p>
+<strong>Algebraically:</strong>.
+</p>
+<p>
+<strong>Geometrically:</strong>.
+</p>
 </p>
 </div>
 </div>
@@ -731,8 +774,8 @@ Shape: Using GAMLSS in r</em>. CRC press.
 </div>
 </div>
 </div>
-</div>
 </section>
+</div>
 
 
 
