@@ -773,6 +773,24 @@ ill-conditioned, and in my opinion, you need to begin trying if there is
 a collinearity problem. Or we can use <a href="https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse">Moore-Penrose
 generalized inverse</a> to have a pseudoinverse matrix.</p>
 </div>
+<div id="principal-component-analysis" class="section level1">
+<h1>PRINCIPAL COMPONENT ANALYSIS</h1>
+<p>The PCA is a technique that will find a direction of form in which
+the projection of data has a greater variance. This direction is, by
+definition, called the first principal direction.</p>
+<p>Consider the following optimization problem <span class="math inline">\(e_{i} \in \mathbb{R}^{p}\)</span></p>
+</div>
+<div class="equation">
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \underset{x}{\text{minimize}}
+&amp; &amp; f_0(x) \\
+&amp; \text{subject to}
+&amp; &amp; f_i(x) \leq b_i, \; i = 1, \ldots, m.
+\end{aligned}
+\]</span></p>
+</div>
+</div>
 <div id="references" class="section level1">
 <h1>REFERENCES</h1>
 <div id="refs" class="references csl-bib-body hanging-indent">
