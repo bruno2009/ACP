@@ -741,20 +741,37 @@ vector</p>
 y_{p})^{\top} \in \mathbb{R}_{\small\setminus0}^{p}\)</span> be any
 column vector. Thus</p>
 <div class="equation">
-<p>$$</p>
-<p>$$</p>
+<p><span class="math display">\[
+Y^{\top}SY = Y^{\top}\bigg( \cfrac{1}{n - 1} \sum_{l = 1}^{n} (x_{l} -
+\overline{x})(x_{l} - \overline{x})^{\top} \bigg)Y
+\]</span></p>
 </div>
-<div class="interpretation">
-<p>
-<p><strong>Interpretation:</strong></p>
-<p>
-<strong>Algebraically:</strong>.
-</p>
-<p>
-<strong>Geometrically:</strong>.
-</p>
-</p>
+<p>how <span class="math inline">\(Y\)</span> does not dependent on
+<span class="math inline">\(l\)</span>, we can move into the
+summation</p>
+<div class="equation">
+<p><span class="math display">\[
+Y^{\top}SY = \bigg( \cfrac{1}{n - 1} \sum_{l = 1}^{n} \underset{1 \times
+p}{Y^{\top}}\underset{p \times 1}{(x_{l} - \overline{x})}\underset{1
+\times p}{(x_{l} - \overline{x})^{\top}}\underset{p \times 1}{Y} \bigg)
+\]</span></p>
 </div>
+<div class="equation">
+<p><span class="math display">\[
+Y^{\top}SY = \cfrac{1}{n - 1} \sum_{l = 1}^{n} \Big( (x_{l} -
+\overline{x})^{\top}Y \Big)^{2} \geq 0
+\]</span></p>
+</div>
+<p>Thereby, the covariance matrix will always be a positive semidefinite
+matrix. Notice that <span class="math inline">\(Y^{\top}SY\)</span> will
+only be zero whether <span class="math inline">\((x_{l} -
+\overline{x})^{\top}Y = 0\)</span> for all <span class="math inline">\(l
+= 1, \dots, n\)</span>.</p>
+<p>Another point that you need to take in mind is <span class="math inline">\(\text{det}(S) = 0\)</span>, which means <span class="math inline">\(Y^{\top}SY = 0\)</span>; in this situation, <span class="math inline">\(S\)</span> is a singular matrix, i.e., there is no
+inverse. In other words, <span class="math inline">\(S\)</span> is
+ill-conditioned, and in my opinion, you need to begin trying if there is
+a collinearity problem. Or we can use <a href="https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse">Moore-Penrose
+generalized inverse</a> to invert a pseudoinverse matrix.</p>
 </div>
 <div id="references" class="section level1">
 <h1>REFERENCES</h1>
