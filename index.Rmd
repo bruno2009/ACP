@@ -394,7 +394,7 @@ $$
 
 Thereby, the covariance matrix will always be a positive semidefinite matrix. Notice that $Y^{\top}SY$ will only be zero whether $(x_{l} - \overline{x})^{\top}Y = 0$ for all $l = 1, \dots, n$.
 
-Another point that you need to take in mind is $\text{det}(S) = 0$, which means $Y^{\top}SY = 0$; in this situation, $S$ is a singular matrix, i.e., there is no inverse. In other words, $S$ is ill-conditioned, and in my opinion, you need to begin trying if there is a collinearity problem. Or we can use [Moore-Penrose generalized inverse](https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse) to invert a pseudoinverse matrix. 
+Another point that you need to take in mind is $\text{det}(S) = 0$, which means $Y^{\top}SY = 0$; in this situation, $S$ is a singular matrix, i.e., there is no inverse. In other words, $S$ is ill-conditioned, and in my opinion, you need to begin trying if there is a collinearity problem. Or we can use [Moore-Penrose generalized inverse](https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse) to have a pseudoinverse matrix. 
 
 
 
