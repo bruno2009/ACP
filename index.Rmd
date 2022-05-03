@@ -260,7 +260,7 @@ and $i, j = 1, \dots, p$;
 
 <div class="equation">
 $$ P_{p \times p} =\begin{bmatrix}
- e_{1} & \dots & e_{p} \\
+ e_{.1} & \dots & e_{.p} \\
 \end{bmatrix} = 
 \begin{bmatrix}
  e_{11} &  e_{12} & \dots & e_{1p} \\
@@ -345,7 +345,7 @@ $$\Rightarrow A^{-1} = \cfrac{1}{\text{det}(A)}\begin{bmatrix}
 <div class="lista">
 <ol type="I">
 <li> All elements on the main diagonal are non-negative and $\mathrm{tr}(A) \geq 0$.</li>
-<li> All principal minors $A$ are nonnegative.</li>
+<li> All principal minors $A$ are non-negative.</li>
 </ol> 
 </p>
 </div>
@@ -371,7 +371,7 @@ Therefore, the sample covariance matrix is
 $$ S = \cfrac{1}{n - 1} \sum_{l = 1}^{n} (x_{l} - \overline{x})(x_{l} - \overline{x})^{\top}$$
 </div>
 
-Now let $y \in \mathbb{R}_{\small\setminus0}^{p}$ be any $n \times 1$ column vector. Thus
+Now let $y_{1 \times p} = (y_{1}, \dots, y_{p})^{\top} \in \mathbb{R}_{\small\setminus0}^{p}$ be any column vector. Thus
 
 
 
