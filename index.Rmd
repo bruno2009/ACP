@@ -5,13 +5,13 @@ output:
       highlight: arrow
       css: style.css
       toc: FALSE
-      #math_method: 
-        #engine: webtex
-        #url: https://latex.codecogs.com/svg.image?
+      math_method: 
+        engine: webtex
+        url: https://latex.codecogs.com/svg.image?
       citation_package: biblatex
-      #includes: 
-         #in_header: Capa.html
-         #after_body: Footer.html
+      includes: 
+         in_header: Capa.html
+         after_body: Footer.html
 header-includes:
   - \usepackage{amsmath}
 bibliography: yourBibFile.bib
@@ -599,6 +599,8 @@ $$
 </div>
 
 Everything that has already been said for the covariance matrix also applies to the correlation matrix.
+
+Data application will come soon!
 
 
  
