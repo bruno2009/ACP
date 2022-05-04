@@ -585,7 +585,7 @@ eigenvectors. <strong>Then:</strong></p>
 \cfrac{\vec{v}_{1}}{||\vec{v}_{1}||} = (e_{11}, e_{21}, \dots,
 e_{p1})^{\top} = e_{1} \\
   \cfrac{\vec{v}_{2}}{||\vec{v}_{2}||} = (e_{12}, e_{22}, \dots,
-e_{p2})^{\top} = e_{1} \\
+e_{p2})^{\top} = e_{2} \\
   \vdots\\
 \cfrac{\vec{v}_{p}}{||\vec{v}_{p}||} = (e_{1p}, e_{2p}, \dots,
 e_{pp})^{\top} = e_{p}
@@ -724,9 +724,10 @@ non-negative.
 <p><span class="math display">\[ \Sigma = \mathrm{E}((X -
 \mathrm{E}(X))(X - \mathrm{E}(X))^{\top})\]</span></p>
 </div>
-<p>For a random sample vector <span class="math inline">\(x_{l} =
-(x_{l1}, \dots, x_{lp})^{\top}\)</span> with <span class="math inline">\(l = 1, \dots, n\)</span> and sample mean
-vector</p>
+<p>where <span class="math inline">\(X\)</span> is a matrix of random
+variables from a sample; <span class="math inline">\(x_{l} = (x_{l1},
+\dots, x_{lp})^{\top}\)</span> is a row vector of <span class="math inline">\(X\)</span> with <span class="math inline">\(l = 1,
+\dots, n\)</span>; and sample mean vector</p>
 <div class="equation">
 <p><span class="math display">\[ \overline{x} = \sum_{l =
 1}^{n}\cfrac{x_{l}}{n} = (\overline{x}_{1}, \dots,
@@ -737,37 +738,37 @@ vector</p>
 <p><span class="math display">\[ S = \cfrac{1}{n - 1} \sum_{l = 1}^{n}
 (x_{l} - \overline{x})(x_{l} - \overline{x})^{\top}\]</span></p>
 </div>
-<p>Now let <span class="math inline">\(Y_{1 \times p} = (y_{1}, \dots,
-y_{p})^{\top} \in \mathbb{R}_{\small\setminus0}^{p}\)</span> be any
+<p>Now let <span class="math inline">\(Z_{p \times 1} = (z_{1}, \dots,
+z_{p})^{\top} \in \mathbb{R}_{\small\setminus0}^{p}\)</span> be any
 column vector. Thus</p>
 <div class="equation">
 <p><span class="math display">\[
-Y^{\top}SY = Y^{\top}\bigg( \cfrac{1}{n - 1} \sum_{l = 1}^{n} (x_{l} -
-\overline{x})(x_{l} - \overline{x})^{\top} \bigg)Y
+Z^{\top}SZ = Z^{\top}\bigg( \cfrac{1}{n - 1} \sum_{l = 1}^{n} (x_{l} -
+\overline{x})(x_{l} - \overline{x})^{\top} \bigg)Z
 \]</span></p>
 </div>
-<p>how <span class="math inline">\(Y\)</span> does not dependent on
+<p>how <span class="math inline">\(Z\)</span> does not dependent on
 <span class="math inline">\(l\)</span>, we can move into the
 summation</p>
 <div class="equation">
 <p><span class="math display">\[
-Y^{\top}SY = \bigg( \cfrac{1}{n - 1} \sum_{l = 1}^{n} \underset{1 \times
-p}{Y^{\top}}\underset{p \times 1}{(x_{l} - \overline{x})}\underset{1
-\times p}{(x_{l} - \overline{x})^{\top}}\underset{p \times 1}{Y} \bigg)
+Z^{\top}SZ = \bigg( \cfrac{1}{n - 1} \sum_{l = 1}^{n} \underset{1 \times
+p}{Z^{\top}}\underset{p \times 1}{(x_{l} - \overline{x})}\underset{1
+\times p}{(x_{l} - \overline{x})^{\top}}\underset{p \times 1}{Z} \bigg)
 \]</span></p>
 </div>
 <div class="equation">
 <p><span class="math display">\[
-Y^{\top}SY = \cfrac{1}{n - 1} \sum_{l = 1}^{n} \Big( (x_{l} -
-\overline{x})^{\top}Y \Big)^{2} \geq 0
+Z^{\top}SZ = \cfrac{1}{n - 1} \sum_{l = 1}^{n} \Big( (x_{l} -
+\overline{x})^{\top}Z \Big)^{2} \geq 0
 \]</span></p>
 </div>
 <p>Thereby, the covariance matrix will always be a positive semidefinite
-matrix. Notice that <span class="math inline">\(Y^{\top}SY\)</span> will
+matrix. Notice that <span class="math inline">\(Z^{\top}SZ\)</span> will
 only be zero whether <span class="math inline">\((x_{l} -
-\overline{x})^{\top}Y = 0\)</span> for all <span class="math inline">\(l
+\overline{x})^{\top}Z = 0\)</span> for all <span class="math inline">\(l
 = 1, \dots, n\)</span>.</p>
-<p>Another point that you need to take in mind is <span class="math inline">\(\text{det}(S) = 0\)</span>, which means <span class="math inline">\(Y^{\top}SY = 0\)</span>; in this situation, <span class="math inline">\(S\)</span> is a singular matrix, i.e., there is no
+<p>Another point that you need to take in mind is <span class="math inline">\(\text{det}(S) = 0\)</span>, which means <span class="math inline">\(Z^{\top}SZ = 0\)</span>; in this situation, <span class="math inline">\(S\)</span> is a singular matrix, i.e., there is no
 inverse. In other words, <span class="math inline">\(S\)</span> is
 ill-conditioned, and in my opinion, you need to begin trying if there is
 a collinearity problem. Or we can use <a href="https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse">Moore-Penrose
@@ -775,19 +776,96 @@ generalized inverse</a> to have a pseudoinverse matrix.</p>
 </div>
 <div id="principal-component-analysis" class="section level1">
 <h1>PRINCIPAL COMPONENT ANALYSIS</h1>
-<p>The PCA is a technique that will find a direction of form in which
-the projection of data has a greater variance. This direction is, by
-definition, called the first principal direction.</p>
-<p>Consider the following optimization problem <span class="math inline">\(e_{i} \in \mathbb{R}^{p}\)</span></p>
+<p>The PCA is a technique that will find directions in which the
+projection of data has the largest variance. The first direction is, by
+definition, called the first principal direction. To find the first one
+consider the following optimization problem <span class="math inline">\(e_{1} \in \mathbb{R}^{p}\)</span></p>
+<div class="equation">
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \underset{e_{1} \neq 0}{\text{max}}
+&amp; &amp; \mathrm{Var}(X e_{1}) = e_{1}^{\top}Se_{1} \\
+&amp; \text{subject to} &amp; &amp; ||e_{1}||^{2} = 1,  \\
+\end{aligned}
+\]</span></p>
+</div>
+<p>Using the formalization of the Lagrange multiplier method to <span class="math inline">\(e_{1}\)</span>, we have</p>
+<div class="equation">
+<p><span class="math display">\[
+L = e_{1}^{\top}Se_{1} - \lambda_{1}(e_{1}^{\top}e_{1} - 1)
+\]</span></p>
 </div>
 <div class="equation">
 <p><span class="math display">\[
 \begin{aligned}
-&amp; \underset{x}{\text{minimize}}
-&amp; &amp; f_0(x) \\
-&amp; \text{subject to}
-&amp; &amp; f_i(x) \leq b_i, \; i = 1, \ldots, m.
+\frac{\partial L}{\partial e_{1}} &amp;= 2Se_{1} - 2\lambda_{1}e_{1}
+\Leftrightarrow
+e_{1}^{\top}Se_{1} = \lambda_{1} \\
+\\
+\frac{\partial L}{\partial \lambda_{1}} &amp;= e_{1}^{\top}e_{1} - 1 =
+0  \Leftrightarrow e_{1}^{\top}e_{1} = 1\\
 \end{aligned}
+\]</span></p>
+</div>
+<p>It is not tough to see that <span class="math inline">\(\lambda_{1}\)</span> is the maximum variance for
+<span class="math inline">\(\underset{\scriptsize n \times 1}{Y_{1}} =
+\underset{\tiny n \times p}{X} \underset{\tiny p \times
+1}{e_{1}}\)</span>.</p>
+<p>Now, we need to find the second direction called the second principal
+direction. Consider the following optimization problem <span class="math inline">\(e_{2} \in \mathbb{R}^{p}\)</span></p>
+<div class="equation">
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \underset{e_{2} \neq 0}{\text{max}}
+&amp; &amp; \mathrm{Var}(X e_{2}) = e_{2}^{\top}Se_{2} \\
+&amp; \text{subject to} &amp; &amp; ||e_{2}||^{2} = 1,  \\
+&amp;                   &amp; &amp; e_{1}^{\top}e_{2} = 0,
+\end{aligned}
+\]</span></p>
+</div>
+<p>Using the formalization of the Lagrange multiplier method, we
+have</p>
+<div class="equation">
+<p><span class="math display">\[
+L = e_{2}^{\top}Se_{2} - \lambda_{2}(e_{2}^{\top}e_{2} - 1) - \phi
+e_{2}^{\top}e_{1}
+\]</span></p>
+</div>
+<div class="equation">
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\partial L}{\partial e_{2}} &amp;= 2Se_{2} - 2\lambda_{2}e_{2} -
+\phi e_{1} = 0 \\
+\\
+\frac{\partial L}{\partial \lambda_{2}} &amp;= e_{2}^{\top}e_{2} - 1 =
+0  \\
+\\
+\frac{\partial L}{\partial \phi} &amp;=  e_{2}^{\top}e_{1} = 0 \\
+\end{aligned}
+\]</span></p>
+</div>
+<p>So, we are going to find the value of <span class="math inline">\(\lambda_{2}\)</span> and <span class="math inline">\(phi\)</span>; then the first one will be <span class="math inline">\(\phi\)</span></p>
+<div class="equation">
+$$
+<span class="math display">\[\begin{aligned}
+2Se_{2} - 2\lambda_{2}e_{2} - \phi e_{1} &amp;= 0 \\
+2e_{1}^{\top}Se_{2} - 2\lambda_{2}e_{1}^{\top}e_{2} - \phi
+e_{1}^{\top}e_{1} &amp;= 0 \ (e_{1}^{\top}e_{1} = 1 \ \mbox{and} \
+e_{1}^{\top}e_{2} = 0)\\
+
+\end{aligned}\]</span>
+<p>$$</p>
+</div>
+<div class="equation">
+<p><span class="math display">\[
+Se_{j} = \lambda_{j}e_{j}
+\]</span></p>
+</div>
+<p>How <span class="math inline">\(A\)</span> is a symmetric matrix,
+then</p>
+<div class="equation">
+<p><span class="math display">\[
+\lambda_{1} \geq \lambda_{2} \geq \dots \geq \lambda_{p}
 \]</span></p>
 </div>
 </div>

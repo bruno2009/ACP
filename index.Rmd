@@ -240,7 +240,7 @@ Linearly independent $\leftarrow$ Orthogonal
 <div class="equation">
 $$ \begin{matrix}
  \cfrac{\vec{v}_{1}}{||\vec{v}_{1}||} = (e_{11}, e_{21}, \dots, e_{p1})^{\top} = e_{1} \\
-  \cfrac{\vec{v}_{2}}{||\vec{v}_{2}||} = (e_{12}, e_{22}, \dots, e_{p2})^{\top} = e_{1} \\
+  \cfrac{\vec{v}_{2}}{||\vec{v}_{2}||} = (e_{12}, e_{22}, \dots, e_{p2})^{\top} = e_{2} \\
   \vdots\\
  \cfrac{\vec{v}_{p}}{||\vec{v}_{p}||} = (e_{1p}, e_{2p}, \dots, e_{pp})^{\top} = e_{p}
 \end{matrix}$$
@@ -359,7 +359,7 @@ The covariance matrix is
 $$ \Sigma = \E((X - \E(X))(X - \E(X))^{\top})$$
 </div>
 
-For a random sample vector $x_{l} = (x_{l1}, \dots, x_{lp})^{\top}$ with $l = 1, \dots, n$ and sample mean vector
+where $X$ is a matrix of random variables from a sample; $x_{l} = (x_{l1}, \dots, x_{lp})^{\top}$ is a row vector of $X$ with $l = 1, \dots, n$; and sample mean vector 
 
 <div class="equation">
 $$ \overline{x} = \sum_{l = 1}^{n}\cfrac{x_{l}}{n} = (\overline{x}_{1}, \dots, \overline{x}_{p})^{\top}$$
@@ -371,49 +371,130 @@ Therefore, the sample covariance matrix is
 $$ S = \cfrac{1}{n - 1} \sum_{l = 1}^{n} (x_{l} - \overline{x})(x_{l} - \overline{x})^{\top}$$
 </div>
 
-Now let $Y_{1 \times p} = (y_{1}, \dots, y_{p})^{\top} \in \mathbb{R}_{\small\setminus0}^{p}$ be any column vector. Thus
+Now let $Z_{p \times 1} = (z_{1}, \dots, z_{p})^{\top} \in \mathbb{R}_{\small\setminus0}^{p}$ be any column vector. Thus
 
 <div class="equation">
 $$
-Y^{\top}SY = Y^{\top}\bigg( \cfrac{1}{n - 1} \sum_{l = 1}^{n} (x_{l} - \overline{x})(x_{l} - \overline{x})^{\top} \bigg)Y
+Z^{\top}SZ = Z^{\top}\bigg( \cfrac{1}{n - 1} \sum_{l = 1}^{n} (x_{l} - \overline{x})(x_{l} - \overline{x})^{\top} \bigg)Z
 $$
 </div>
 
-how $Y$ does not dependent on $l$, we can move into the summation
+how $Z$ does not dependent on $l$, we can move into the summation
 
 <div class="equation">
 $$
-Y^{\top}SY = \bigg( \cfrac{1}{n - 1} \sum_{l = 1}^{n} \underset{1 \times p}{Y^{\top}}\underset{p \times 1}{(x_{l} - \overline{x})}\underset{1 \times p}{(x_{l} - \overline{x})^{\top}}\underset{p \times 1}{Y} \bigg)
+Z^{\top}SZ = \bigg( \cfrac{1}{n - 1} \sum_{l = 1}^{n} \underset{1 \times p}{Z^{\top}}\underset{p \times 1}{(x_{l} - \overline{x})}\underset{1 \times p}{(x_{l} - \overline{x})^{\top}}\underset{p \times 1}{Z} \bigg)
 $$
 </div>
 <div class="equation">
 $$
-Y^{\top}SY = \cfrac{1}{n - 1} \sum_{l = 1}^{n} \Big( (x_{l} - \overline{x})^{\top}Y \Big)^{2} \geq 0 
+Z^{\top}SZ = \cfrac{1}{n - 1} \sum_{l = 1}^{n} \Big( (x_{l} - \overline{x})^{\top}Z \Big)^{2} \geq 0 
 $$
 </div>
 
-Thereby, the covariance matrix will always be a positive semidefinite matrix. Notice that $Y^{\top}SY$ will only be zero whether $(x_{l} - \overline{x})^{\top}Y = 0$ for all $l = 1, \dots, n$.
+Thereby, the covariance matrix will always be a positive semidefinite matrix. Notice that $Z^{\top}SZ$ will only be zero whether $(x_{l} - \overline{x})^{\top}Z = 0$ for all $l = 1, \dots, n$.
 
-Another point that you need to take in mind is $\text{det}(S) = 0$, which means $Y^{\top}SY = 0$; in this situation, $S$ is a singular matrix, i.e., there is no inverse. In other words, $S$ is ill-conditioned, and in my opinion, you need to begin trying if there is a collinearity problem. Or we can use [Moore-Penrose generalized inverse](https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse) to have a pseudoinverse matrix. 
+Another point that you need to take in mind is $\text{det}(S) = 0$, which means $Z^{\top}SZ = 0$; in this situation, $S$ is a singular matrix, i.e., there is no inverse. In other words, $S$ is ill-conditioned, and in my opinion, you need to begin trying if there is a collinearity problem. Or we can use [Moore-Penrose generalized inverse](https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse) to have a pseudoinverse matrix. 
 
 # PRINCIPAL COMPONENT ANALYSIS
 
-The PCA is a technique that will find a direction of form in which the projection of data has a greater variance. This direction is, by definition, called the first principal direction.
+The PCA is a technique that will find directions in which the projection of data has the largest variance. The first direction is, by definition, called the first principal direction. To find the first one consider the following optimization problem $e_{1} \in \mathbb{R}^{p}$
 
-Consider the following optimization problem $e_{i} \in \mathbb{R}^{p}$
-
-</div>
 <div class="equation">
 $$
 \begin{aligned}
-& \underset{x}{\text{minimize}}
-& & f_0(x) \\
-& \text{subject to}
-& & f_i(x) \leq b_i, \; i = 1, \ldots, m.
+& \underset{e_{1} \neq 0}{\text{max}}
+& & \var(X e_{1}) = e_{1}^{\top}Se_{1} \\
+& \text{subject to} & & ||e_{1}||^{2} = 1,  \\
 \end{aligned}
 $$
 </div>
 
+Using the formalization of the Lagrange multiplier method to $e_{1}$, we have
+
+<div class="equation">
+$$
+L = e_{1}^{\top}Se_{1} - \lambda_{1}(e_{1}^{\top}e_{1} - 1) 
+$$
+</div>
+<div class="equation">
+$$
+\begin{aligned}
+\frac{\partial L}{\partial e_{1}} &= 2Se_{1} - 2\lambda_{1}e_{1} \Leftrightarrow 
+e_{1}^{\top}Se_{1} = \lambda_{1} \\
+ \\
+\frac{\partial L}{\partial \lambda_{1}} &= e_{1}^{\top}e_{1} - 1 = 0  \Leftrightarrow e_{1}^{\top}e_{1} = 1\\
+\end{aligned}
+$$
+</div>
+
+It is not tough to see that $\lambda_{1}$ is the maximum variance for $\underset{\scriptsize n \times 1}{Y_{1}} = \underset{\tiny n \times p}{X} \underset{\tiny p \times 1}{e_{1}}$.
+
+Now, we need to find the second direction called the second principal direction. Consider the following optimization problem $e_{2} \in \mathbb{R}^{p}$
+
+<div class="equation">
+$$
+\begin{aligned}
+& \underset{e_{2} \neq 0}{\text{max}}
+& & \var(X e_{2}) = e_{2}^{\top}Se_{2} \\
+& \text{subject to} & & ||e_{2}||^{2} = 1,  \\
+&                   & & e_{1}^{\top}e_{2} = 0, 
+\end{aligned}
+$$
+</div>
+
+Using the formalization of the Lagrange multiplier method, we have
+
+<div class="equation">
+$$
+L = e_{2}^{\top}Se_{2} - \lambda_{2}(e_{2}^{\top}e_{2} - 1) - \phi e_{2}^{\top}e_{1}
+$$
+</div>
+<div class="equation">
+$$
+\begin{aligned}
+\frac{\partial L}{\partial e_{2}} &= 2Se_{2} - 2\lambda_{2}e_{2} - \phi e_{1} = 0 \\
+ \\
+\frac{\partial L}{\partial \lambda_{2}} &= e_{2}^{\top}e_{2} - 1 = 0  \\
+\\
+\frac{\partial L}{\partial \phi} &=  e_{2}^{\top}e_{1} = 0 \\
+\end{aligned}
+$$
+</div>
+
+So, we are going to find the value of $\lambda_{2}$ and $phi$; then the first one will be $\phi$
+
+<div class="equation">
+$$
+\begin{aligned}
+2Se_{2} - 2\lambda_{2}e_{2} - \phi e_{1} &= 0 \\
+2e_{1}^{\top}Se_{2} - 2\lambda_{2}e_{1}^{\top}e_{2} - \phi e_{1}^{\top}e_{1} &= 0 \ (e_{1}^{\top}e_{1} = 1 \ \mbox{and} \ e_{1}^{\top}e_{2} = 0)\\
+
+\end{aligned}
+$$
+</div>
+
+
+
+
+
+
+
+
+
+<div class="equation">
+$$
+Se_{j} = \lambda_{j}e_{j} 
+$$
+</div>
+
+How $A$ is a symmetric matrix, then
+
+<div class="equation">
+$$
+\lambda_{1} \geq \lambda_{2} \geq \dots \geq \lambda_{p}
+$$
+</div>
  
 
 
