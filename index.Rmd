@@ -5,13 +5,13 @@ output:
       highlight: arrow
       css: style.css
       toc: FALSE
-      #math_method: 
-        #engine: webtex
-        #url: https://latex.codecogs.com/svg.image?
+      math_method: 
+        engine: webtex
+        url: https://latex.codecogs.com/svg.image?
       citation_package: biblatex
-      #includes: 
-         #in_header: Capa.html
-         #after_body: Footer.html
+      includes: 
+         in_header: Capa.html
+         after_body: Footer.html
 header-includes:
   - \usepackage{amsmath}
 bibliography: yourBibFile.bib
@@ -428,7 +428,7 @@ e_{1}^{\top}Se_{1} = \lambda_{1} \\
 $$
 </div>
 
-It is not tough to see that $\lambda_{1}$ is the maximum variance for $\underset{\scriptsize n \times 1}{Y_{1}} = \underset{\tiny n \times p}{X} \underset{\tiny p \times 1}{e_{1}}$.
+It is not tough to see that $\lambda_{1}$ is the maximum variance for $\underset{ n \times 1}{Y_{1}} = \underset{ n \times p}{(X - \overline{x})} \underset{ p \times 1}{e_{1}}$.
 
 Now, we need to find the second direction called the second principal direction. Consider the following optimization problem $e_{2} \in \mathbb{R}^{p}$
 
@@ -455,9 +455,9 @@ $$
 \begin{aligned}
 \frac{\partial L}{\partial e_{2}} &= 2Se_{2} - 2\lambda_{2}e_{2} - \phi e_{1} = 0 \\
  \\
-\frac{\partial L}{\partial \lambda_{2}} &= e_{2}^{\top}e_{2} - 1 = 0  \\
+\frac{\partial L}{\partial \lambda_{2}} &= e_{2}^{\top}e_{2} - 1 = 0 \Leftrightarrow  e_{2}^{\top}e_{2} = 1\\
 \\
-\frac{\partial L}{\partial \phi} &=  e_{2}^{\top}e_{1} = 0 \\
+\frac{\partial L}{\partial \phi} &=  e_{2}^{\top}e_{1} = 0  \\
 \end{aligned}
 $$
 </div>
@@ -475,27 +475,37 @@ $$
 $$
 </div>
 
-
-
-
-
-
-
-
-
+and to $\lambda_{2}$
 <div class="equation">
 $$
-Se_{j} = \lambda_{j}e_{j} 
+\begin{aligned}
+\frac{\partial L}{\partial e_{2}} &= 2Se_{2} - 2\lambda_{2}e_{2} - \phi e_{1} = 0 \Leftrightarrow  e_{2}^{\top}Se_{2} = \lambda_{2}\\
+ \\
+\end{aligned}
 $$
 </div>
 
-How $A$ is a symmetric matrix, then
+Now, $\lambda_{2}$ is the second maximum variance for $\underset{ n \times 1}{Y_{2}} = \underset{ n \times p}{(X - \overline{x})} \underset{ p \times 1}{e_{2}}$.
+
+The results above can be extrapolated to $k$ principal components, where $k \leq p$. Then
 
 <div class="equation">
 $$
-\lambda_{1} \geq \lambda_{2} \geq \dots \geq \lambda_{p}
+\begin{aligned}
+\underset{ n \times 1}{Y_{1}} = \underset{ n \times p}{(X - \overline{x})} \underset{ p \times 1}{e_{1}} &\Leftrightarrow  \var(Xe_{1}) = e_{1}^{\top}Se_{1} = \lambda_{1}\\
+\underset{ n \times 1}{Y_{2}} = \underset{ n \times p}{(X - \overline{x})} \underset{ p \times 1}{e_{2}} &\Leftrightarrow  \var(Xe_{2}) = e_{2}^{\top}Se_{2} = \lambda_{2}\\
+ \vdots \\
+ \underset{ n \times 1}{Y_{k}} = \underset{ n \times p}{(X - \overline{x})} \underset{ p \times 1}{e_{k}} &\Leftrightarrow  \var(Xe_{k}) = e_{k}^{\top}Se_{k} = \lambda_{k}\\
+\end{aligned}
 $$
 </div>
+
+where $\lambda_{1} \geq \lambda_{2} \geq \dots \geq \lambda_{k}$.
+
+
+
+
+
  
 
 
