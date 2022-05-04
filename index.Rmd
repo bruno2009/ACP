@@ -21,6 +21,7 @@ biblio-style: authoryear
 
 \newcommand{\E}{\mathrm{E}}
 \newcommand{\var}{\mathrm{Var}}
+\newcommand{\cov}{\mathrm{Cov}}
 \newcommand{\P}{\mathrm{P}}
 
 ```{r setup, include=FALSE, echo=FALSE}
@@ -213,7 +214,7 @@ Let $A \in \mathbb{R}^{p \times p}$, then
 <div class="equation">
 $$\begin{aligned}
 <\vec{v}_{i}, \vec{v}_{j}> &= \vec{v}_{i}^{\top} \vec{v}_{j} \\[10pt]
- &=  \sum_{k=1}^{p} \vec{v}_{ki}\vec{v}_{kj}  \\[10pt]
+ &=  \sum_{t=1}^{p} \vec{v}_{ti}\vec{v}_{tj}  \\[10pt]
  &= \vec{v}_{1i}\vec{v}_{1j} + \dots+ \vec{v}_{pi}\vec{v}_{pj} \\[10pt]
  &= 0
 \end{aligned}$$
@@ -371,30 +372,30 @@ Therefore, the sample covariance matrix is
 $$ S = \cfrac{1}{n - 1} \sum_{l = 1}^{n} (x_{l} - \overline{x})(x_{l} - \overline{x})^{\top}$$
 </div>
 
-Now let $Z_{p \times 1} = (z_{1}, \dots, z_{p})^{\top} \in \mathbb{R}_{\small\setminus0}^{p}$ be any column vector. Thus
+Now let $\underset{ p \times 1}{e_{j}} = e_{.j} = (e_{1j}, \dots, e_{pj})^{\top} \in \mathbb{R}_{\small\setminus0}^{p}$ be any column vector. Thus
 
 <div class="equation">
 $$
-Z^{\top}SZ = Z^{\top}\bigg( \cfrac{1}{n - 1} \sum_{l = 1}^{n} (x_{l} - \overline{x})(x_{l} - \overline{x})^{\top} \bigg)Z
+e_{j}^{\top}Se_{j} = e_{j}^{\top}\bigg( \cfrac{1}{n - 1} \sum_{l = 1}^{n} (x_{l} - \overline{x})(x_{l} - \overline{x})^{\top} \bigg)e_{j}
 $$
 </div>
 
-how $Z$ does not dependent on $l$, we can move into the summation
+how $e_{j}$ does not dependent on $l$, we can move into the summation
 
 <div class="equation">
 $$
-Z^{\top}SZ = \bigg( \cfrac{1}{n - 1} \sum_{l = 1}^{n} \underset{1 \times p}{Z^{\top}}\underset{p \times 1}{(x_{l} - \overline{x})}\underset{1 \times p}{(x_{l} - \overline{x})^{\top}}\underset{p \times 1}{Z} \bigg)
+e_{j}^{\top}Se_{j} = \bigg( \cfrac{1}{n - 1} \sum_{l = 1}^{n} \underset{1 \times p}{e_{j}^{\top}}\underset{p \times 1}{(x_{l} - \overline{x})}\underset{1 \times p}{(x_{l} - \overline{x})^{\top}}\underset{p \times 1}{e_{j}} \bigg)
 $$
 </div>
 <div class="equation">
 $$
-Z^{\top}SZ = \cfrac{1}{n - 1} \sum_{l = 1}^{n} \Big( (x_{l} - \overline{x})^{\top}Z \Big)^{2} \geq 0 
+e_{j}^{\top}Se_{j} = \cfrac{1}{n - 1} \sum_{l = 1}^{n} \Big( (x_{l} - \overline{x})^{\top}e_{j} \Big)^{2} \geq 0 
 $$
 </div>
 
-Thereby, the covariance matrix will always be a positive semidefinite matrix. Notice that $Z^{\top}SZ$ will only be zero whether $(x_{l} - \overline{x})^{\top}Z = 0$ for all $l = 1, \dots, n$.
+Thereby, the covariance matrix will always be a positive semidefinite matrix. Notice that $e_{j}^{\top}Se_{j}$ will only be zero whether $(x_{l} - \overline{x})^{\top}e_{j} = 0$ for all $l = 1, \dots, n$.
 
-Another point that you need to take in mind is $\text{det}(S) = 0$, which means $Z^{\top}SZ = 0$; in this situation, $S$ is a singular matrix, i.e., there is no inverse. In other words, $S$ is ill-conditioned, and in my opinion, you need to begin trying if there is a collinearity problem. Or we can use [Moore-Penrose generalized inverse](https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse) to have a pseudoinverse matrix. 
+Another point that you need to take in mind is $\text{det}(S) = 0$, which means $e_{j}^{\top}Se_{j} = 0$; in this situation, $S$ is a singular matrix, i.e., there is no inverse. In other words, $S$ is ill-conditioned, and in my opinion, you need to begin trying if there is a collinearity problem. Or we can use [Moore-Penrose generalized inverse](https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse) to have a pseudoinverse matrix. 
 
 # PRINCIPAL COMPONENT ANALYSIS
 
@@ -468,14 +469,14 @@ So, we are going to find the value of $\lambda_{2}$ and $\phi$; then the first o
 $$
 \begin{aligned}
 2Se_{2} - 2\lambda_{2}e_{2} - \phi e_{1} &= 0 \\
-2e_{1}^{\top}Se_{2} - 2\lambda_{2}e_{1}^{\top}e_{2} - \phi e_{1}^{\top}e_{1} &= 0, \ (e_{1}^{\top}e_{1} = 1, e_{1}^{\top}e_{2} = 0, \ \mbox{and} \ e_{1}^{\top}S = \lambda_{1}e_{1}^{\top} \ )\\
-2\lambda_{1}e_{1}^{\top}e_{2} - \phi &= 0, \ (e_{1}^{\top}e_{2} = 0)\\
+2e_{1}^{\top}Se_{2} - 2\lambda_{2}e_{1}^{\top}e_{2} - \phi e_{1}^{\top}e_{1} &= 0 \\
+2\lambda_{1}e_{1}^{\top}e_{2} - \phi &= 0\\
 \phi &= 0
 \end{aligned}
 $$
 </div>
 
-and to $\lambda_{2}$
+where $e_{1}^{\top}e_{1} = 1, e_{1}^{\top}e_{2} = 0, \ \mbox{and} \ e_{1}^{\top}S = \lambda_{1}e_{1}^{\top}$; and to $\lambda_{2}$
 <div class="equation">
 $$
 \begin{aligned}
@@ -492,20 +493,61 @@ The results above can be extrapolated to $k$ principal components, where $k \leq
 <div class="equation">
 $$
 \begin{aligned}
-\underset{ n \times 1}{Y_{1}} = \underset{ n \times p}{(X - \overline{x})} \underset{ p \times 1}{e_{1}} &\Leftrightarrow  \var(Xe_{1}) = e_{1}^{\top}Se_{1} = \lambda_{1}\\
-\underset{ n \times 1}{Y_{2}} = \underset{ n \times p}{(X - \overline{x})} \underset{ p \times 1}{e_{2}} &\Leftrightarrow  \var(Xe_{2}) = e_{2}^{\top}Se_{2} = \lambda_{2}\\
+\underset{ n \times 1}{Y_{1}} = \underset{ n \times p}{(X - \overline{x})} \underset{ p \times 1}{e_{1}} &\Leftrightarrow \var(Y_{1}) = \var(Xe_{1}) = e_{1}^{\top}Se_{1} = \lambda_{1}\\
+\underset{ n \times 1}{Y_{2}} = \underset{ n \times p}{(X - \overline{x})} \underset{ p \times 1}{e_{2}} &\Leftrightarrow  \var(Y_{2}) = \var(Xe_{2}) = e_{2}^{\top}Se_{2} = \lambda_{2}\\
  \vdots \\
- \underset{ n \times 1}{Y_{k}} = \underset{ n \times p}{(X - \overline{x})} \underset{ p \times 1}{e_{k}} &\Leftrightarrow  \var(Xe_{k}) = e_{k}^{\top}Se_{k} = \lambda_{k}\\
+ \underset{ n \times 1}{Y_{k}} = \underset{ n \times p}{(X - \overline{x})} \underset{ p \times 1}{e_{k}} &\Leftrightarrow  \var(Y_{k}) = \var(Xe_{k}) = e_{k}^{\top}Se_{k} = \lambda_{k}\\
+\end{aligned}
+$$
+</div>
+and
+<div class="equation">
+$$
+\begin{aligned}
+\cov(Y_{i}, Y_{j}) = e_{i}^{\top}Se_{j} = \lambda_{i}e_{i}^{\top}e_{j} = 0, \ \forall \ i \neq j= 1, \dots, k \leq p \\
 \end{aligned}
 $$
 </div>
 
-where $\lambda_{1} \geq \lambda_{2} \geq \dots \geq \lambda_{k}$.
+where $\lambda_{1} \geq \lambda_{2} \geq \dots \geq \lambda_{k}$ and $Y_{i} \perp\!\!\!\!\perp Y_{j}$ are dependent on each other. Another point to note is
 
+<div class="equation">
+$$
+\begin{aligned}
+\sum_{t = 1}^{p} \var(\textbf{x}_{t}) = \sum_{t = 1}^{p} \var(Y_{t}) \Leftrightarrow  \sum_{t = 1}^{p} S_{tt} = \sum_{t = 1}^{p} \lambda_{t}\\
+\end{aligned}
+$$
+</div>
 
+in which $X = [\textbf{x}_{1} \ \dots \ \textbf{x}_{p}]$.
 
+<div class="Important">
+<p><strong>Important:</strong> If you want to work without centering the data $(\underset{ n \times p}{X})$ on the mean, the covariance matrix must be equal to $S = X^{\top}X / (n - 1)$.
+</div>
 
+<div class="equation">
+$$
+\begin{aligned}
+\text{Information of}\ Y_{j} : \cfrac{\lambda_{j}}{\sum_{t = 1}^{p} \lambda_{t}}\times 100
+\end{aligned}
+$$
+</div>
 
+Of course, the first component will retain the most information on the variance of original data, and the second component will have the second most information on the variance of original data; in this way, it will follow until the $p$ component, which the last one will have the smallest information on variance of original data. 
+
+Therefore, $k$ is the component number chosen by the researcher. It is common to have a situation where the total sample variance of original data can be explained from 80% to 90% by the first $k$ principal components. That is why we can replace the original p-variables with the $k$ component without much loss of information.
+
+Now, I will introduce the correlation coefficient between $Y_{j}$ and $\textbf{x}_{i}$ for all $i, j = 1, \dots, p$. Then
+
+<div class="equation">
+$$
+\begin{aligned}
+{\Large r}_{\small Y_{j},\textbf{x}_{i}} = \cfrac{e_{ji}\sqrt{\lambda_{j}}}{\sqrt{S_{ii}}}
+\end{aligned}
+$$
+</div>
+
+With the measure of the correlation between $Y$ and $x$, you might decide which variable may stay in this specific component or remove. There is no magical formula that you might use to decide whether to leave or remove this specific variable. To me, if $|{\Large r}_{\small Y_{j},\textbf{x}_{i}}| < 0.25$, you perhaps need to think about how important this variable is in this component. And so, you decide. 
  
 
 

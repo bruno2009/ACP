@@ -554,7 +554,7 @@ orthogonal to each other. <strong>Then:</strong></p>
 <p><span class="math display">\[\begin{aligned}
 &lt;\vec{v}_{i}, \vec{v}_{j}&gt; &amp;= \vec{v}_{i}^{\top} \vec{v}_{j}
 \\[10pt]
-&amp;=  \sum_{k=1}^{p} \vec{v}_{ki}\vec{v}_{kj}  \\[10pt]
+&amp;=  \sum_{t=1}^{p} \vec{v}_{ti}\vec{v}_{tj}  \\[10pt]
 &amp;= \vec{v}_{1i}\vec{v}_{1j} + \dots+ \vec{v}_{pi}\vec{v}_{pj}
 \\[10pt]
 &amp;= 0
@@ -738,40 +738,43 @@ variables from a sample; <span class="math inline">\(x_{l} = (x_{l1},
 <p><span class="math display">\[ S = \cfrac{1}{n - 1} \sum_{l = 1}^{n}
 (x_{l} - \overline{x})(x_{l} - \overline{x})^{\top}\]</span></p>
 </div>
-<p>Now let <span class="math inline">\(Z_{p \times 1} = (z_{1}, \dots,
-z_{p})^{\top} \in \mathbb{R}_{\small\setminus0}^{p}\)</span> be any
-column vector. Thus</p>
+<p>Now let <span class="math inline">\(\underset{ p \times 1}{e_{j}} =
+e_{.j} = (e_{1j}, \dots, e_{pj})^{\top} \in
+\mathbb{R}_{\small\setminus0}^{p}\)</span> be any column vector.
+Thus</p>
 <div class="equation">
 <p><span class="math display">\[
-Z^{\top}SZ = Z^{\top}\bigg( \cfrac{1}{n - 1} \sum_{l = 1}^{n} (x_{l} -
-\overline{x})(x_{l} - \overline{x})^{\top} \bigg)Z
+e_{j}^{\top}Se_{j} = e_{j}^{\top}\bigg( \cfrac{1}{n - 1} \sum_{l =
+1}^{n} (x_{l} - \overline{x})(x_{l} - \overline{x})^{\top} \bigg)e_{j}
 \]</span></p>
 </div>
-<p>how <span class="math inline">\(Z\)</span> does not dependent on
+<p>how <span class="math inline">\(e_{j}\)</span> does not dependent on
 <span class="math inline">\(l\)</span>, we can move into the
 summation</p>
 <div class="equation">
 <p><span class="math display">\[
-Z^{\top}SZ = \bigg( \cfrac{1}{n - 1} \sum_{l = 1}^{n} \underset{1 \times
-p}{Z^{\top}}\underset{p \times 1}{(x_{l} - \overline{x})}\underset{1
-\times p}{(x_{l} - \overline{x})^{\top}}\underset{p \times 1}{Z} \bigg)
+e_{j}^{\top}Se_{j} = \bigg( \cfrac{1}{n - 1} \sum_{l = 1}^{n}
+\underset{1 \times p}{e_{j}^{\top}}\underset{p \times 1}{(x_{l} -
+\overline{x})}\underset{1 \times p}{(x_{l} -
+\overline{x})^{\top}}\underset{p \times 1}{e_{j}} \bigg)
 \]</span></p>
 </div>
 <div class="equation">
 <p><span class="math display">\[
-Z^{\top}SZ = \cfrac{1}{n - 1} \sum_{l = 1}^{n} \Big( (x_{l} -
-\overline{x})^{\top}Z \Big)^{2} \geq 0
+e_{j}^{\top}Se_{j} = \cfrac{1}{n - 1} \sum_{l = 1}^{n} \Big( (x_{l} -
+\overline{x})^{\top}e_{j} \Big)^{2} \geq 0
 \]</span></p>
 </div>
 <p>Thereby, the covariance matrix will always be a positive semidefinite
-matrix. Notice that <span class="math inline">\(Z^{\top}SZ\)</span> will
-only be zero whether <span class="math inline">\((x_{l} -
-\overline{x})^{\top}Z = 0\)</span> for all <span class="math inline">\(l
-= 1, \dots, n\)</span>.</p>
-<p>Another point that you need to take in mind is <span class="math inline">\(\text{det}(S) = 0\)</span>, which means <span class="math inline">\(Z^{\top}SZ = 0\)</span>; in this situation, <span class="math inline">\(S\)</span> is a singular matrix, i.e., there is no
-inverse. In other words, <span class="math inline">\(S\)</span> is
-ill-conditioned, and in my opinion, you need to begin trying if there is
-a collinearity problem. Or we can use <a href="https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse">Moore-Penrose
+matrix. Notice that <span class="math inline">\(e_{j}^{\top}Se_{j}\)</span> will only be zero
+whether <span class="math inline">\((x_{l} - \overline{x})^{\top}e_{j} =
+0\)</span> for all <span class="math inline">\(l = 1, \dots,
+n\)</span>.</p>
+<p>Another point that you need to take in mind is <span class="math inline">\(\text{det}(S) = 0\)</span>, which means <span class="math inline">\(e_{j}^{\top}Se_{j} = 0\)</span>; in this
+situation, <span class="math inline">\(S\)</span> is a singular matrix,
+i.e., there is no inverse. In other words, <span class="math inline">\(S\)</span> is ill-conditioned, and in my opinion,
+you need to begin trying if there is a collinearity problem. Or we can
+use <a href="https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse">Moore-Penrose
 generalized inverse</a> to have a pseudoinverse matrix.</p>
 </div>
 <div id="principal-component-analysis" class="section level1">
@@ -850,15 +853,15 @@ e_{2}^{\top}e_{1}
 \begin{aligned}
 2Se_{2} - 2\lambda_{2}e_{2} - \phi e_{1} &amp;= 0 \\
 2e_{1}^{\top}Se_{2} - 2\lambda_{2}e_{1}^{\top}e_{2} - \phi
-e_{1}^{\top}e_{1} &amp;= 0, \ (e_{1}^{\top}e_{1} = 1, e_{1}^{\top}e_{2}
-= 0, \ \mbox{and} \ e_{1}^{\top}S = \lambda_{1}e_{1}^{\top} \ )\\
-2\lambda_{1}e_{1}^{\top}e_{2} - \phi &amp;= 0, \ (e_{1}^{\top}e_{2} =
-0)\\
+e_{1}^{\top}e_{1} &amp;= 0 \\
+2\lambda_{1}e_{1}^{\top}e_{2} - \phi &amp;= 0\\
 \phi &amp;= 0
 \end{aligned}
 \]</span></p>
 </div>
-and to <span class="math inline">\(\lambda_{2}\)</span>
+where <span class="math inline">\(e_{1}^{\top}e_{1} = 1,
+e_{1}^{\top}e_{2} = 0, \ \mbox{and} \ e_{1}^{\top}S =
+\lambda_{1}e_{1}^{\top}\)</span>; and to <span class="math inline">\(\lambda_{2}\)</span>
 <div class="equation">
 <p><span class="math display">\[
 \begin{aligned}
@@ -877,23 +880,89 @@ maximum variance for <span class="math inline">\(\underset{ n \times
 <p><span class="math display">\[
 \begin{aligned}
 \underset{ n \times 1}{Y_{1}} = \underset{ n \times p}{(X -
-\overline{x})} \underset{ p \times 1}{e_{1}}
-&amp;\Leftrightarrow  \mathrm{Var}(Xe_{1}) = e_{1}^{\top}Se_{1} =
+\overline{x})} \underset{ p \times 1}{e_{1}} &amp;\Leftrightarrow
+\mathrm{Var}(Y_{1}) = \mathrm{Var}(Xe_{1}) = e_{1}^{\top}Se_{1} =
 \lambda_{1}\\
 \underset{ n \times 1}{Y_{2}} = \underset{ n \times p}{(X -
 \overline{x})} \underset{ p \times 1}{e_{2}}
-&amp;\Leftrightarrow  \mathrm{Var}(Xe_{2}) = e_{2}^{\top}Se_{2} =
-\lambda_{2}\\
+&amp;\Leftrightarrow  \mathrm{Var}(Y_{2}) = \mathrm{Var}(Xe_{2}) =
+e_{2}^{\top}Se_{2} = \lambda_{2}\\
 \vdots \\
 \underset{ n \times 1}{Y_{k}} = \underset{ n \times p}{(X -
 \overline{x})} \underset{ p \times 1}{e_{k}}
-&amp;\Leftrightarrow  \mathrm{Var}(Xe_{k}) = e_{k}^{\top}Se_{k} =
-\lambda_{k}\\
+&amp;\Leftrightarrow  \mathrm{Var}(Y_{k}) = \mathrm{Var}(Xe_{k}) =
+e_{k}^{\top}Se_{k} = \lambda_{k}\\
+\end{aligned}
+\]</span></p>
+</div>
+and
+<div class="equation">
+<p><span class="math display">\[
+\begin{aligned}
+\mathrm{Cov}(Y_{i}, Y_{j}) = e_{i}^{\top}Se_{j} =
+\lambda_{i}e_{i}^{\top}e_{j} = 0, \ \forall \ i \neq j= 1, \dots, k \leq
+p \\
 \end{aligned}
 \]</span></p>
 </div>
 <p>where <span class="math inline">\(\lambda_{1} \geq \lambda_{2} \geq
-\dots \geq \lambda_{k}\)</span>.</p>
+\dots \geq \lambda_{k}\)</span> and <span class="math inline">\(Y_{i}
+\perp\!\!\!\!\perp Y_{j}\)</span> are dependent on each other. Another
+point to note is</p>
+<div class="equation">
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{t = 1}^{p} \mathrm{Var}(\textbf{x}_{t}) = \sum_{t = 1}^{p}
+\mathrm{Var}(Y_{t}) \Leftrightarrow  \sum_{t = 1}^{p} S_{tt} = \sum_{t =
+1}^{p} \lambda_{t}\\
+\end{aligned}
+\]</span></p>
+</div>
+<p>in which <span class="math inline">\(X = [\textbf{x}_{1} \ \dots \
+\textbf{x}_{p}]\)</span>.</p>
+<div class="Important">
+<p>
+<strong>Important:</strong> If you want to work without centering the
+data <span class="math inline">\((\underset{ n \times p}{X})\)</span> on
+the mean, the covariance matrix must be equal to <span class="math inline">\(S = X^{\top}X / (n - 1)\)</span>.
+</div>
+<div class="equation">
+<p><span class="math display">\[
+\begin{aligned}
+\text{Information of}\ Y_{j} : \cfrac{\lambda_{j}}{\sum_{t = 1}^{p}
+\lambda_{t}}\times 100
+\end{aligned}
+\]</span></p>
+</div>
+<p>Of course, the first component will retain the most information on
+the variance of original data, and the second component will have the
+second most information on the variance of original data; in this way,
+it will follow until the <span class="math inline">\(p\)</span>
+component, which the last one will have the smallest information on
+variance of original data.</p>
+<p>Therefore, <span class="math inline">\(k\)</span> is the component
+number chosen by the researcher. It is common to have a situation where
+the total sample variance of original data can be explained from 80% to
+90% by the first <span class="math inline">\(k\)</span> principal
+components. That is why we can replace the original p-variables with the
+<span class="math inline">\(k\)</span> component without much loss of
+information.</p>
+<p>Now, I will introduce the correlation coefficient between <span class="math inline">\(Y_{j}\)</span> and <span class="math inline">\(\textbf{x}_{i}\)</span> for all <span class="math inline">\(i, j = 1, \dots, p\)</span>. Then</p>
+<div class="equation">
+<p><span class="math display">\[
+\begin{aligned}
+{\Large r}_{\small Y_{j},\textbf{x}_{i}} =
+\cfrac{e_{ji}\sqrt{\lambda_{j}}}{\sqrt{S_{ii}}}
+\end{aligned}
+\]</span></p>
+</div>
+<p>With the measure of the correlation between <span class="math inline">\(Y\)</span> and <span class="math inline">\(x\)</span>, you might decide which variable may
+stay in this specific component or remove. There is no magical formula
+that you might use to decide whether to leave or remove this specific
+variable. To me, if <span class="math inline">\(|{\Large r}_{\small
+Y_{j},\textbf{x}_{i}}| &lt; 0.25\)</span>, you perhaps need to think
+about how important this variable is in this component. And so, you
+decide.</p>
 </div>
 <div id="references" class="section level1">
 <h1>REFERENCES</h1>
