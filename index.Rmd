@@ -462,7 +462,7 @@ $$
 $$
 </div>
 
-So, we are going to find the value of $\lambda_{2}$ and $phi$; then the first one will be $\phi$
+So, we are going to find the value of $\lambda_{2}$ and $\phi$; then the first one will be $\phi$
 
 <div class="equation">
 $$
