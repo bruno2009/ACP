@@ -959,10 +959,73 @@ information.</p>
 <p>With the measure of the correlation between <span class="math inline">\(Y\)</span> and <span class="math inline">\(x\)</span>, you might decide which variable may
 stay in this specific component or remove. There is no magical formula
 that you might use to decide whether to leave or remove this specific
-variable. To me, if <span class="math inline">\(|{\Large r}_{\small
-Y_{j},\textbf{x}_{i}}| &lt; 0.25\)</span>, you perhaps need to think
-about how important this variable is in this component. And so, you
-decide.</p>
+variable. To me, if <span class="math inline">\(|{\Large r}| &lt;
+0.25\)</span>, you perhaps need to think about how important this
+variable is in this component. And so, you decide.</p>
+<p>Generally, the principal component varies with the transformation on
+the scales. For example, imagine there is a variable <span class="math inline">\(\textbf{x}_{1} \in (0, 1)\)</span>, but there is
+also a variable <span class="math inline">\(\textbf{x}_{2} &gt;
+1000\)</span> (minimum value). So, the principal component tends to give
+more importance to <span class="math inline">\(\textbf{x}_{2}\)</span>
+than <span class="math inline">\(\textbf{x}_{1}\)</span> just because of
+the difference in these scales. But it might not be the truth. In this
+case, you need to standardize your data.</p>
+<p>Assuming that,</p>
+<div class="equation">
+<p><span class="math display">\[U = \begin{bmatrix}
+            S_{11} &amp;        &amp; &amp;0\\
+                   &amp; S_{22} &amp; &amp;\\
+                   &amp;        &amp; \ddots &amp;\\
+            0       &amp;        &amp;        &amp;S_{pp} \\
+          \end{bmatrix} \Rightarrow
+U^{-1/2} = \begin{bmatrix}
+           \cfrac{1}{\sqrt{S_{11}}}  &amp;        &amp; &amp;0\\
+                   &amp; \cfrac{1}{\sqrt{S_{22}}} &amp; &amp;\\
+                   &amp;        &amp; \ddots &amp;\\
+            0       &amp;        &amp;        &amp;
+\cfrac{1}{\sqrt{S_{pp}}} \\
+          \end{bmatrix}\]</span></p>
+</div>
+<p>so</p>
+<div class="equation">
+<p><span class="math display">\[
+\begin{aligned}
+Z &amp;= \underset{ n \times p}{(X - \overline{x})} \underset{ p \times
+p}{U^{-1/2}}\\
+\\
+\mathrm{Cov}(Z) &amp;= U^{-1/2} \mathrm{Cov}(X) U^{-1/2} = U^{-1/2} S
+U^{-1/2} = R\\
+\\
+S &amp;= U^{-1/2} R U^{-1/2} \\
+\end{aligned}
+\]</span></p>
+</div>
+<p>where <span class="math inline">\(R\)</span> is correlation matrix of
+<span class="math inline">\(X\)</span>. In this way, working with the
+standardized data is the same as with the correlation matrix. To
+standardized data, then</p>
+<div class="equation">
+<p><span class="math display">\[
+\begin{aligned}
+\text{Principal component:} &amp;\ \ \ \underset{ n \times 1}{Y_{j}} =
+\underset{ n \times p}{Z} \underset{ p \times 1}{e_{j}} \Leftrightarrow
+\mathrm{Var}(Y_{j}) = \lambda_{j}\\
+\\
+\text{Total variance:} &amp;\ \ \ \sum_{t = 1}^{p}
+\mathrm{Var}(\textbf{z}_{t}) = \sum_{t = 1}^{p} \mathrm{Var}(Y_{t})
+\Leftrightarrow  \sum_{t = 1}^{p} R_{tt} = \sum_{t = 1}^{p} \lambda_{t}
+= p\\
+\\
+\text{Information of}\ Y_{j} :&amp; \ \ \ \cfrac{\lambda_{j}}{p}\times
+100 \\
+\\
+\text{Correlation coefficient:}&amp;\ \ \ {\Large r}_{\small
+Y_{j},\textbf{x}_{i}} = e_{ji}\sqrt{\lambda_{j}}
+\end{aligned}
+\]</span></p>
+</div>
+<p>Everything that has already been said for the covariance matrix also
+applies to the correlation matrix.</p>
 </div>
 <div id="references" class="section level1">
 <h1>REFERENCES</h1>
