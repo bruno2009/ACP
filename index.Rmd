@@ -468,8 +468,9 @@ So, we are going to find the value of $\lambda_{2}$ and $phi$; then the first on
 $$
 \begin{aligned}
 2Se_{2} - 2\lambda_{2}e_{2} - \phi e_{1} &= 0 \\
-2e_{1}^{\top}Se_{2} - 2\lambda_{2}e_{1}^{\top}e_{2} - \phi e_{1}^{\top}e_{1} &= 0 \ (e_{1}^{\top}e_{1} = 1 \ \mbox{and} \ e_{1}^{\top}e_{2} = 0)\\
-
+2e_{1}^{\top}Se_{2} - 2\lambda_{2}e_{1}^{\top}e_{2} - \phi e_{1}^{\top}e_{1} &= 0, \ (e_{1}^{\top}e_{1} = 1, e_{1}^{\top}e_{2} = 0, \ \mbox{and} \ e_{1}^{\top}S = \lambda_{1}e_{1}^{\top} \ )\\
+2\lambda_{1}e_{1}^{\top}e_{2} - \phi &= 0, \ (e_{1}^{\top}e_{2} = 0)\\
+\phi &= 0
 \end{aligned}
 $$
 </div>
